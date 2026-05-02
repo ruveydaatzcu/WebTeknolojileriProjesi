@@ -3,66 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hakkımda - Rüveyda</title>
-    <!-- Bootstrap CSS -->
+    <title>Hakkımda - Rüveyda Tuzcu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { background-color: #f8f9fa; }
-        .profil-img {
-            max-width: 280px;
-            border-radius: 20px;
-            border: 8px solid white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        :root { 
+            --main-purple: #6f42c1; 
+            --light-purple: #a29bfe; 
+            --bg-lavender: #f8f7ff; 
         }
+        body { background-color: var(--bg-lavender); font-family: 'Segoe UI', Tahoma, sans-serif; color: #2d3436; }
+        
+        .navbar { background-color: var(--main-purple) !important; box-shadow: 0 4px 15px rgba(111, 66, 193, 0.2); }
+        
+        .hero-header {
+            background: linear-gradient(135deg, var(--main-purple) 0%, var(--light-purple) 100%);
+            color: white;
+            padding: 80px 0;
+            border-radius: 0 0 50px 50px;
+            margin-bottom: 40px;
+        }
+
+        .profile-img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border: 6px solid white;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(111, 66, 193, 0.3);
+        }
+
         .info-card {
             background: white;
+            border: none;
+            border-radius: 25px;
             padding: 30px;
-            border-radius: 15px;
-            margin-top: 50px;
+            box-shadow: 0 15px 35px rgba(111, 66, 193, 0.08);
+            height: 100%;
+        }
+
+        .student-info {
+            color: var(--main-purple);
+            font-weight: bold;
+            font-size: 1.1rem;
         }
     </style>
 </head>
 <body>
 
-    <!-- Menü -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Rüveyda'nın Portfolyosu</a>
+            <a class="navbar-brand fw-bold" href="index.html">Rüveyda Tuzcu</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="index.html">Hakkımda</a></li>
                     <li class="nav-item"><a class="nav-link" href="ozgecmis.html">Özgeçmiş</a></li>
                     <li class="nav-item"><a class="nav-link" href="sehrim.html">Şehrim</a></li>
-                    <li class="nav-item"><a class="nav-link" href="mirasimiz.html">Mirasımız</a></li>
+                    <li class="nav-item"><a class="nav-link" href="miras.html">Mirasımız</a></li>
                     <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html">Giriş</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- İçerik -->
-    <div class="container">
-        <div class="row align-items-center info-card shadow-sm">
-            <div class="col-md-5 text-center">
-                <!-- Senin yüklediğin dosya ismi: profilim.jpg -->
-                <img src="resimler/profilim.jpg" alt="Rüveyda" class="profil-img img-fluid">
+    <header class="hero-header text-center">
+        <div class="container">
+            <img src="resimler/profilim.jpg" alt="Rüveyda Tuzcu" class="profile-img mb-4">
+            <h1 class="display-5 fw-bold">Rüveyda Tuzcu</h1>
+            <p class="lead opacity-90">Bilgisayar Mühendisliği Öğrencisi</p>
+        </div>
+    </header>
+
+    <div class="container mb-5">
+        <div class="row g-4 justify-content-center">
+            <!-- Kişisel Bilgiler -->
+            <div class="col-md-5">
+                <div class="info-card">
+                    <h4 class="mb-4" style="color: var(--main-purple); border-bottom: 2px solid var(--light-purple); display: inline-block;">Kişisel Bilgiler</h4>
+                    <p><strong>Öğrenci No:</strong> <span class="student-info">B251210070</span></p>
+                    <p><strong>Doğum Tarihi:</strong> <span class="student-info">06.11.2007</span></p>
+                    <p><strong>Eğitim:</strong> Bilgisayar Mühendisliği</p>
+                </div>
             </div>
+
+            <!-- Hakkımda Metni -->
             <div class="col-md-7">
-                <h1 class="fw-bold">Merhaba, Ben Rüveyda!</h1>
-                <p class="lead text-primary">Sakarya Üniversitesi | Bilgisayar Mühendisliği</p>
-                <hr>
-                <p>Web teknolojileri dersi kapsamında hazırladığım bu projede, bir bilgisayar mühendisi adayı olarak yazılım yolculuğumu ve ilgi alanlarımı paylaşıyorum.</p>
-                
-                <h5 class="mt-4">İlgi Alanlarım:</h5>
-                <ul>
-                    <li>Yapay Zeka ve Veri Analizi</li>
-                    <li>Web Geliştirme (HTML, CSS, Bootstrap)</li>
-                    <li>Tarihi ve Kültürel Geziler</li>
-                </ul>
+                <div class="info-card">
+                    <h4 class="mb-4" style="color: var(--main-purple); border-bottom: 2px solid var(--light-purple); display: inline-block;">Hakkımda</h4>
+                    <p class="text-muted" style="line-height: 1.7;">
+                        Geleceğin yazılım dünyasına katkı sağlamayı hedefleyen bir mühendis adayıyım. 
+                        Web teknolojileri, C# ve nesne yönelimli programlama üzerine çalışmalar yapıyorum. 
+                        Şu an Sakarya'da eğitimime devam ederken, bir yandan da güncel teknolojileri takip ederek kendimi geliştiriyorum.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
+
+    <footer class="text-center py-4 text-muted small">
+        <p>&copy; 2026 Rüveyda Tuzcu | B251210070</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
