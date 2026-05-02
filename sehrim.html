@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şehrim: Ankara - Rüveyda Tuzcu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root { --main-purple: #6f42c1; --light-purple: #a29bfe; --bg-color: #fcfaff; }
+        body { background-color: var(--bg-color); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #3d344d; }
+        
+        .navbar { background-color: var(--main-purple) !important; box-shadow: 0 4px 15px rgba(111, 66, 193, 0.2); }
+        
+        .header-bg {
+            background: linear-gradient(135deg, var(--main-purple) 0%, var(--light-purple) 100%);
+            color: white;
+            padding: 80px 0;
+            border-radius: 0 0 80px 80px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(111, 66, 193, 0.15);
+        }
+
+        .city-card {
+            border: none;
+            border-radius: 25px;
+            overflow: hidden;
+            background: white;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 35px rgba(111, 66, 193, 0.08);
+            height: 100%;
+        }
+        .city-card:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(111, 66, 193, 0.15); }
+        .city-card img { height: 220px; width: 100%; object-fit: cover; border-bottom: 4px solid var(--light-purple); }
+        .card-title { color: var(--main-purple); font-weight: 800; margin-top: 10px; }
+        .card-text { color: #6c757d; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">Rüveyda Tuzcu</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Hakkımda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ozgecmis.html">Özgeçmiş</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="sehrim.html">Şehrim</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mirasimiz.html">Mirasımız</a></li>
+                    <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="header-bg text-center">
+        <div class="container">
+            <h1 class="display-3 fw-bold">Başkent'te Gezilecek Yerler</h1>
+            <p class="lead opacity-75">Tarihten doğaya, Ankara'nın her köşesi ayrı bir hikaye.</p>
+        </div>
+    </header>
+
+    <div class="container mb-5">
+        <div class="row g-4">
+            
+            <!-- Anıtkabir -->
+            <div class="col-md-6 col-lg-4">
+                <div class="city-card">
+                    <img src="resimler/anitkabir.jpg" alt="Anıtkabir">
+                    <div class="card-body p-4"><h5 class="card-title">Anıtkabir</h5><p class="card-text">Cumhuriyetimizin kurucusu Atatürk'ün ebedi istirahatgahı.</p></div>
+                </div>
+            </div>
+
+            <!-- Ankara Kalesi -->
+            <div class="col-md-6 col-lg-4">
+                <div class="city-card">
+                    <img src="resimler/ankara-kalesi.jpg" alt="Ankara Kalesi">
+                    <div class="card-body p-4"><h5 class="card-title">Ankara Kalesi</h5><p class="card-text">Şehre hakim bir tepeden Başkent'i selamlayan tarihi surlar.</p></div>
+                </div>
+            </div>
+
+            <!-- Atakule -->
+            <div class="col-md-6 col-lg-4">
+                <div class="city-card">
+                    <img src="resimler/atakule.jpg" alt="Atakule">
+                    <div class="card-body p-4"><h5 class="card-title">Atakule</h5><p class="card-text">Ankara'nın modern simgesi ve eşsiz şehir manzarası noktası.</p></div>
+                </div>
+            </div>
+
+            <!-- Anadolu Medeniyetleri Müzesi -->
+            <div class="col-md-6 col-lg-4">
+                <div class="city-card">
+                    <img src="resimler/anadolu-medeniyet-muzesi.jpg" alt="Müze">
+                    <div class="card-body p-4"><h5 class="card-title">Medeniyetler Müzesi</h5><p class="card-text">Anadolu'nun binlerce yıllık tarihini barındıran dünya çapında bir müze.</p></div>
+                </div>
+            </div>
+
+            <!-- Eski Meclis -->
+            <div class="col-md-6 col-lg-4">
+                <div class="city-card">
+                    <img src="resimler/eskimeclis.jpg" alt="Eski Meclis">
+                    <div class="card-body p-4"><h5 class="card-title">I. TBMM Binası</h5><p class="card-text">Milli Mücadele'nin yönetildiği, Cumhuriyetin ilk adımlarının atıldığı yer.</p></div>
+                </div>
+            </div>
+
+            <!-- Kuğulu Park -->
+            <div class="col-md-6 col-lg-4">
+                <div class="city-card">
+                    <img src="resimler/kugulupark.jpg" alt="Kuğulu Park">
+                    <div class="card-body p-4"><h5 class="card-title">Kuğulu Park</h5><p class="card-text">Kavaklıdere'de kuğuların ve yeşilin buluştuğu huzur durağı.</p></div>
+                </div>
+            </div>
+
+            <!-- Kocatepe Camii -->
+            <div class="col-md-6 col-lg-4">
+                <div class="city-card">
+                    <img src="resimler/kocatepecamii.jpg" alt="Kocatepe Camii">
+                    <div class="card-body p-4"><h5 class="card-title">Kocatepe Camii</h5><p class="card-text">Görkemli mimarisiyle Ankara'nın manevi silüetini oluşturan yapı.</p></div>
+                </div>
+            </div>
+
+            <!-- Hamamönü -->
+            <div class="col-md-6 col-lg-4">
+                <div class="city-card">
+                    <img src="resimler/hamamonu.jpg" alt="Hamamönü">
+                    <div class="card-body p-4"><h5 class="card-title">Hamamönü</h5><p class="card-text">Restore edilmiş evleriyle eski Ankara mahalle kültürünü yaşatan bölge.</p></div>
+                </div>
+            </div>
+
+            <!-- Beypazarı -->
+            <div class="col-md-6 col-lg-4">
+                <div class="city-card">
+                    <img src="resimler/beypazari1.jpg" alt="Beypazarı">
+                    <div class="card-body p-4"><h5 class="card-title">Beypazarı</h5><p class="card-text">Geleneksel evleri ve çarşısıyla Başkent'in tarih kokan ilçesi.</p></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
