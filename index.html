@@ -3,106 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hakkımda - Rüveyda Tuzcu</title>
+    <title>Rüveyda Tuzcu // Portfolyo</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;800&family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
-        :root { 
-            --main-purple: #6f42c1; 
-            --light-purple: #a29bfe; 
-            --bg-lavender: #f8f7ff; 
+        :root {
+            --bg: #010103;
+            --accent: #bc13fe; 
+            --cyan: #00f2ff;
+            --text: #ffffff;
+            --border: rgba(188, 19, 254, 0.4);
+            --card-bg: rgba(255, 255, 255, 0.05);
         }
-        body { background-color: var(--bg-lavender); font-family: 'Segoe UI', Tahoma, sans-serif; color: #2d3436; }
+
+        body { background-color: var(--bg); color: var(--text); font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; margin: 0; }
+        #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
         
-        .navbar { background-color: var(--main-purple) !important; box-shadow: 0 4px 15px rgba(111, 66, 193, 0.2); }
+        .navbar { 
+            background: rgba(0, 0, 0, 0.9); 
+            border-bottom: 1px solid var(--border); 
+            padding: 15px 0; 
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+        .nav-link { 
+            color: #d1d5db !important; 
+            font-family: 'JetBrains Mono'; 
+            font-size: 0.85rem; 
+            letter-spacing: 1px; 
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+        .nav-link:hover, .nav-link.active { color: var(--cyan) !important; text-shadow: 0 0 8px var(--cyan); }
         
-        .hero-header {
-            background: linear-gradient(135deg, var(--main-purple) 0%, var(--light-purple) 100%);
-            color: white;
-            padding: 80px 0;
-            border-radius: 0 0 50px 50px;
-            margin-bottom: 40px;
+        .login-btn {
+            border: 1px solid var(--accent);
+            color: var(--accent) !important;
+            border-radius: 20px;
+            padding: 5px 20px !important;
+            box-shadow: 0 0 10px rgba(188, 19, 254, 0.3);
+        }
+        .login-btn:hover { background: var(--accent); color: white !important; box-shadow: 0 0 20px var(--accent); }
+
+        .brand-name { 
+            font-family: 'JetBrains Mono'; font-weight: 800; color: #fff !important; 
+            text-transform: uppercase; text-decoration: none; text-shadow: 0 0 10px var(--accent); font-size: 1.2rem;
         }
 
-        .profile-img {
-            width: 220px;
-            height: 220px;
-            object-fit: cover;
-            border: 6px solid white;
-            border-radius: 50%;
-            box-shadow: 0 10px 30px rgba(111, 66, 193, 0.3);
+        .hero { padding: 150px 0 80px; }
+        .glitch-text { font-weight: 800; text-transform: uppercase; text-shadow: 2px 2px 0 var(--accent), -2px -2px 0 var(--cyan); }
+        
+        .profile-box {
+            width: 180px; height: 180px; border-radius: 50%;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 30px var(--accent); margin: 0 auto;
+            overflow: hidden; background: #000;
         }
+        .profile-box img { width: 100%; height: 100%; object-fit: cover; }
 
-        .info-card {
-            background: white;
-            border: none;
-            border-radius: 25px;
-            padding: 30px;
-            box-shadow: 0 15px 35px rgba(111, 66, 193, 0.08);
-            height: 100%;
+        .holo-card {
+            background: var(--card-bg); backdrop-filter: blur(25px);
+            border: 1px solid var(--border); border-radius: 40px; 
+            padding: 40px; transition: 0.5s; height: 100%;
         }
+        .card-header-main { color: var(--accent); font-family: 'JetBrains Mono'; font-weight: 800; text-transform: uppercase; margin-bottom: 25px; }
 
-        .student-info {
-            color: var(--main-purple);
-            font-weight: bold;
-            font-size: 1.1rem;
+        .uni-header { display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 35px; width: 100%; }
+        .uni-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--cyan), transparent); }
+        .uni-title { color: var(--cyan); font-family: 'JetBrains Mono'; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; font-size: 1.1rem; text-align: center; }
+
+        .video-dashboard {
+            position: relative; width: 100%; padding-bottom: 56.25%; height: 0;
+            border-radius: 35px; overflow: hidden; border: 2px solid var(--border); background: #000;
+        }
+        .video-dashboard iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+        .tech-badge {
+            background: rgba(0,0,0,0.4); border: 1px solid var(--border);
+            color: var(--cyan); padding: 8px 16px; border-radius: 12px;
+            font-family: 'JetBrains Mono'; font-weight: 700; font-size: 0.8rem; margin: 5px; display: inline-block;
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div id="particles-js"></div>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">Rüveyda Tuzcu</a>
+            <a class="brand-name" href="index.html">RÜVEYDA TUZCU</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: var(--border);">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link active" href="index.html">Hakkımda</a></li>
                     <li class="nav-item"><a class="nav-link" href="ozgecmis.html">Özgeçmiş</a></li>
                     <li class="nav-item"><a class="nav-link" href="sehrim.html">Şehrim</a></li>
                     <li class="nav-item"><a class="nav-link" href="miras.html">Mirasımız</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ilgi_alanlarim.html">İlgi Alanlarım</a></li>
                     <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
+                    <li class="nav-item"><a class="nav-link login-btn ms-lg-3" href="login.html">Login</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <header class="hero-header text-center">
-        <div class="container">
-            <img src="resimler/profilim.jpg" alt="Rüveyda Tuzcu" class="profile-img mb-4">
-            <h1 class="display-5 fw-bold">Rüveyda Tuzcu</h1>
-            <p class="lead opacity-90">Bilgisayar Mühendisliği Öğrencisi</p>
+    <header class="container hero text-center">
+        <div data-aos="zoom-in">
+            <div class="profile-box mb-4">
+                <img src="resimler/profilim.jpg" alt="RT" onerror="this.src='https://via.placeholder.com/180x180?text=RT'">
+            </div>
+            <h1 class="display-3 glitch-text">Rüveyda Tuzcu</h1>
+            <p class="fs-4 mt-3" style="color: var(--cyan); font-weight: 300;">Bilgisayar Mühendisliği Öğrencisi</p>
         </div>
     </header>
 
-    <div class="container mb-5">
-        <div class="row g-4 justify-content-center">
-            <!-- Kişisel Bilgiler -->
-            <div class="col-md-5">
-                <div class="info-card">
-                    <h4 class="mb-4" style="color: var(--main-purple); border-bottom: 2px solid var(--light-purple); display: inline-block;">Kişisel Bilgiler</h4>
-                    <p><strong>Öğrenci No:</strong> <span class="student-info">B251210070</span></p>
-                    <p><strong>Doğum Tarihi:</strong> <span class="student-info">06.11.2007</span></p>
-                    <p><strong>Eğitim:</strong> Bilgisayar Mühendisliği</p>
+    <main class="container">
+        <div class="row g-4">
+            <div class="col-lg-5" data-aos="fade-right">
+                <div class="holo-card">
+                    <h4 class="card-header-main">Akademik Profil</h4>
+                    <p><span style="color:white; font-weight:800;">Öğrenci No:</span> <span style="font-family: 'JetBrains Mono'; color: var(--cyan); font-weight: 800;">B251210070</span></p>
+                    <p><span style="color:white; font-weight:800;">Eğitim:</span> Sakarya Üniversitesi</p>
+                    <hr style="border-color: var(--border);">
+                    <div class="mt-4">
+                        <div class="tech-badge">🚀 Teknofest 2026</div>
+                        <div class="tech-badge">🧠 Sağlıkta Yapay Zeka</div>
+                        <div class="tech-badge">📊 Veri Analitiği</div>
+                        <div class="tech-badge">🔍 Model Açıklanabilirliği</div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Hakkımda Metni -->
-            <div class="col-md-7">
-                <div class="info-card">
-                    <h4 class="mb-4" style="color: var(--main-purple); border-bottom: 2px solid var(--light-purple); display: inline-block;">Hakkımda</h4>
-                    <p class="text-muted" style="line-height: 1.7;">
-                        Geleceğin yazılım dünyasına katkı sağlamayı hedefleyen bir mühendis adayıyım. 
-                        Web teknolojileri, C# ve nesne yönelimli programlama üzerine çalışmalar yapıyorum. 
-                        Şu an Sakarya'da eğitimime devam ederken, bir yandan da güncel teknolojileri takip ederek kendimi geliştiriyorum.
+            <div class="col-lg-7" data-aos="fade-left">
+                <div class="holo-card">
+                    <h4 class="card-header-main">Akademik Vizyon</h4>
+                    <p style="color: #d1d5db; line-height: 1.8; text-align: justify;">
+                        Sakarya Üniversitesi bünyesindeki lisans eğitimim süresince, teorik algoritmik temelleri pratik mühendislik çözümleriyle birleştirmeye odaklanıyorum. Özellikle Nesneye Dayalı Programlama (OOP) ve veri yapıları alanında yetkinlik kazanırken, akademik çalışmalarımı <strong>yapay zeka disiplini</strong> üzerinde yoğunlaştırıyorum. 
+                        <br><br>
+                        <strong>Teknofest 2026 Sağlıkta Yapay Zeka</strong> yarışması kapsamında 8.8 milyon satırlık ham veri setleri üzerinde çalışarak veri optimizasyonu süreçlerinde teknik disiplin kazandım.
                     </p>
                 </div>
             </div>
+
+            <div class="col-12 mt-4 mb-5" data-aos="fade-up">
+                <div class="holo-card">
+                    <!-- İstediğin başlık eklendi -->
+                    <div class="uni-header">
+                        <div class="uni-line"></div>
+                        <div class="uni-title">
+                            ÜNİVERSİTEMİN TANITIM VİDEOSU: SAKARYA ÜNİVERSİTESİ
+                        </div>
+                        <div class="uni-line"></div>
+                    </div>
+                    <div class="video-dashboard">
+                        <iframe src="https://streamable.com/e/5pylsb" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </main>
 
-    <footer class="text-center py-4 text-muted small">
-        <p>&copy; 2026 Rüveyda Tuzcu | B251210070</p>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 50, density: { enable: true, value_area: 800 } },
+                color: { value: '#bc13fe' },
+                opacity: { value: 0.3 },
+                line_linked: { enable: true, distance: 150, color: '#bc13fe', opacity: 0.2, width: 1 },
+                move: { speed: 1 }
+            }
+        });
+    </script>
 </body>
 </html>
