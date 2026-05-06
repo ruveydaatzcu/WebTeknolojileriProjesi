@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rüveyda Tuzcu // İletişim</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;800&family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #010103;
+            --accent: #bc13fe; 
+            --cyan: #00f2ff;
+            --text: #ffffff;
+            --border: rgba(188, 19, 254, 0.4);
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        body { background-color: var(--bg); color: var(--text); font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; margin: 0; }
+        #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        
+        .navbar { 
+            background: rgba(0, 0, 0, 0.9); 
+            border-bottom: 1px solid var(--border); 
+            padding: 15px 0; 
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+        .nav-link { 
+            color: #d1d5db !important; 
+            font-family: 'JetBrains Mono'; 
+            font-size: 0.85rem; 
+            letter-spacing: 1px; 
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+        .nav-link:hover, .nav-link.active { color: var(--cyan) !important; text-shadow: 0 0 8px var(--cyan); }
+        
+        .login-btn {
+            border: 1px solid var(--accent);
+            color: var(--accent) !important;
+            border-radius: 20px;
+            padding: 5px 20px !important;
+            box-shadow: 0 0 10px rgba(188, 19, 254, 0.3);
+        }
+        .login-btn:hover { background: var(--accent); color: white !important; box-shadow: 0 0 20px var(--accent); }
+
+        .brand-name { 
+            font-family: 'JetBrains Mono'; font-weight: 800; color: #fff !important; 
+            text-transform: uppercase; text-decoration: none; text-shadow: 0 0 10px var(--accent); font-size: 1.2rem;
+        }
+
+        .header-bg {
+            padding: 150px 0 60px;
+            background: linear-gradient(180deg, rgba(188, 19, 254, 0.15) 0%, transparent 100%);
+        }
+
+        .iletisim-container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto 50px auto;
+            padding: 20px;
+            gap: 40px;
+        }
+
+        .holo-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(25px);
+            border: 1px solid var(--border);
+            border-radius: 35px;
+            padding: 40px;
+            flex: 1;
+            min-width: 320px;
+            transition: 0.4s;
+        }
+
+        .card-header-main {
+            color: var(--accent);
+            font-family: 'JetBrains Mono';
+            font-weight: 800;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .bilgi-item { margin: 25px 0; font-size: 1.05rem; color: #d1d5db; }
+        .bilgi-item strong { color: var(--cyan); font-family: 'JetBrains Mono'; margin-right: 10px; }
+        .bilgi-item a { color: #fff; text-decoration: none; transition: 0.3s; }
+        .bilgi-item a:hover { color: var(--accent); text-shadow: 0 0 5px var(--accent); }
+
+        form input, form textarea {
+            width: 100%;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 15px;
+            margin: 10px 0;
+            color: white;
+            font-family: 'Space Grotesk';
+        }
+
+        form input:focus, form textarea:focus {
+            outline: none;
+            border-color: var(--cyan);
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+        }
+
+        .submit-btn {
+            background: transparent;
+            border: 1px solid var(--cyan);
+            color: var(--cyan);
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-family: 'JetBrains Mono';
+            font-weight: 800;
+            text-transform: uppercase;
+            transition: 0.4s;
+            margin-top: 15px;
+        }
+
+        .submit-btn:hover {
+            background: var(--cyan);
+            color: #000;
+            box-shadow: 0 0 25px var(--cyan);
+        }
+
+        .map-wrapper {
+            width: 100%;
+            height: 450px;
+            border-radius: 40px;
+            overflow: hidden;
+            border: 2px solid var(--border);
+            margin-top: 20px;
+            box-shadow: 0 0 30px rgba(188, 19, 254, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="brand-name" href="index.html">RÜVEYDA TUZCU</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: var(--border);">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Hakkımda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ozgecmis.html">Özgeçmiş</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sehrim.html">Şehrim</a></li>
+                    <li class="nav-item"><a class="nav-link" href="miras.html">Mirasımız</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ilgi_alanlarim.html">İlgi Alanlarım</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="iletisim.html">İletişim</a></li>
+                    <li class="nav-item"><a class="nav-link login-btn ms-lg-3" href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="header-bg text-center">
+        <div class="container" data-aos="zoom-in">
+            <h1 class="display-3 fw-bold" style="text-shadow: 0 0 20px var(--accent);">Bağlantıda Kalalım</h1>
+            <p class="lead" style="color: var(--cyan); font-family: 'JetBrains Mono'; font-weight: 500;"> Projeler ve İş Birlikleri İçin Mesaj Gönderin</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="iletisim-container">
+            <!-- Sol: Form -->
+            <div class="holo-card" data-aos="fade-right">
+                <h4 class="card-header-main">Bana Mesaj Gönderin</h4>
+                <form action="#">
+                    <input type="text" placeholder="Adınız Soyadınız" required>
+                    <input type="email" placeholder="E-posta Adresiniz" required>
+                    <input type="text" placeholder="Konu">
+                    <textarea rows="4" placeholder="Mesajınız..." required></textarea>
+                    <button type="submit" class="submit-btn">Mesajı Gönder</button>
+                </form>
+            </div>
+
+            <!-- Sağ: Bilgiler -->
+            <div class="holo-card" data-aos="fade-left">
+                <h4 class="card-header-main">İletişim Kanalları</h4>
+                <div class="bilgi-item">
+                    <strong><i class="fas fa-user"></i> AD SOYAD:</strong> Rüveyda Tuzcu
+                </div>
+                <div class="bilgi-item">
+                    <strong><i class="fas fa-envelope"></i> E-POSTA:</strong> <a href="mailto:ruveyda.tuzcu.ogr.sakarya.edu.tr">ruveyda.tuzcu.ogr.sakarya.edu.tr</a>
+                </div>
+                <div class="bilgi-item">
+                    <strong><i class="fab fa-instagram"></i> INSTAGRAM:</strong> <a href="https://instagram.com/ruvyda.tzcu" target="_blank">@ruvyda.tzcu</a>
+                </div>
+                <div class="bilgi-item">
+                    <strong><i class="fab fa-whatsapp"></i> WHATSAPP:</strong> <a href="https://wa.me/905527082515" target="_blank">0552 708 25 15</a>
+                </div>
+                <div class="bilgi-item">
+                    <strong><i class="fas fa-location-dot"></i> KONUM:</strong> Sakarya Üniversitesi, Sakarya
+                </div>
+            </div>
+        </div>
+
+        <!-- Harita -->
+        <div class="container mb-5" data-aos="fade-up">
+            <div class="map-wrapper">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m1!1s0x14ccb2a3048590c9:0x20556e431f426188!2sSakarya%20%C3%9Cniversitesi!5m2!1str!2str" 
+                    width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center py-5 text-muted small">
+        <p style="letter-spacing: 2px;">&copy; 2026 RÜVEYDA TUZCU // B251210070</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 50, density: { enable: true, value_area: 800 } },
+                color: { value: '#bc13fe' },
+                opacity: { value: 0.3 },
+                line_linked: { enable: true, distance: 150, color: '#bc13fe', opacity: 0.2, width: 1 },
+                move: { speed: 1.2 }
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
