@@ -1,0 +1,237 @@
+/* SAKARYA ÜNİVERSİTESİ - WEB TEKNOLOJİLERİ PROJESİ
+    Tasarım: Rüveyda Tuzcu // B251210070
+    Tema: Futuristik / Cyberpunk (Central Style)
+*/
+
+:root {
+    --bg: #010103;
+    --accent: #bc13fe; /* Neon Mor */
+    --cyan: #00f2ff;   /* Neon Mavi */
+    --text: #ffffff;
+    --border: rgba(188, 19, 254, 0.4);
+    --card-bg: rgba(255, 255, 255, 0.05);
+}
+
+/* --- Genel Ayarlar --- */
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Space Grotesk', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* --- Navigasyon Menüsü --- */
+.navbar {
+    background: rgba(0, 0, 0, 0.9);
+    border-bottom: 1px solid var(--border);
+    padding: 15px 0;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.brand-name {
+    font-family: 'JetBrains Mono';
+    font-weight: 800;
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-shadow: 0 0 10px var(--accent);
+    font-size: 1.2rem;
+}
+
+.nav-link {
+    color: #d1d5db !important;
+    font-family: 'JetBrains Mono';
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--cyan) !important;
+    text-shadow: 0 0 8px var(--cyan);
+}
+
+.login-btn {
+    border: 1px solid var(--accent);
+    color: var(--accent) !important;
+    border-radius: 20px;
+    padding: 5px 20px !important;
+    box-shadow: 0 0 10px rgba(188, 19, 254, 0.3);
+}
+
+.login-btn:hover {
+    background: var(--accent);
+    color: white !important;
+    box-shadow: 0 0 20px var(--accent);
+}
+
+/* --- Hero ve Profil --- */
+.hero { padding: 150px 0 80px; }
+
+.glitch-text {
+    font-weight: 800;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 var(--accent), -2px -2px 0 var(--cyan);
+}
+
+.profile-box {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 30px var(--accent);
+    margin: 0 auto;
+    overflow: hidden;
+    background: #000;
+}
+
+.profile-box img { width: 100%; height: 100%; object-fit: cover; }
+
+/* --- Kartlar (Holo-Card) --- */
+.holo-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(25px);
+    border: 1px solid var(--border);
+    border-radius: 40px; 
+    padding: 40px;
+    transition: 0.5s;
+    height: 100%;
+}
+
+.holo-card:hover {
+    border-color: var(--cyan);
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.15);
+}
+
+.section-title, .card-header-main {
+    color: var(--accent);
+    font-family: 'JetBrains Mono';
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+/* --- Akademik Detaylar --- */
+.student-no {
+    font-family: 'JetBrains Mono';
+    color: var(--cyan);
+    font-weight: 800;
+}
+
+.tech-badge {
+    background: rgba(0,0,0,0.4);
+    border: 1px solid var(--border);
+    color: var(--cyan);
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-family: 'JetBrains Mono';
+    font-weight: 700;
+    font-size: 0.8rem;
+    margin: 5px;
+    display: inline-block;
+}
+
+/* --- Video Dashboard --- */
+.uni-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 35px;
+    width: 100%;
+}
+
+.uni-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--cyan), transparent);
+}
+
+.uni-title {
+    color: var(--cyan);
+    font-family: 'JetBrains Mono';
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.video-dashboard {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    border-radius: 35px;
+    overflow: hidden;
+    border: 2px solid var(--border);
+    background: #000;
+}
+
+.video-dashboard iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* --- Formlar --- */
+.form-control {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    color: white !important;
+    margin-bottom: 20px;
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: var(--cyan);
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+    outline: none;
+}
+
+/* --- Butonlar --- */
+.btn-cyber {
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 15px;
+    border-radius: 50px;
+    font-family: 'JetBrains Mono';
+    font-weight: 800;
+    text-transform: uppercase;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.btn-cyber:hover {
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 0 30px var(--accent);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .holo-card { padding: 20px; }
+    .display-3 { font-size: 2.5rem; }
+    .hero { padding: 120px 0 60px; }
+}
