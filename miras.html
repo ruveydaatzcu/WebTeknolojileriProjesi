@@ -10,85 +10,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
+    <link rel="stylesheet" href="style.css">
+
     <style>
-        :root {
-            --bg: #010103;
-            --accent: #bc13fe; 
-            --cyan: #00f2ff;
-            --text: #ffffff;
-            --border: rgba(188, 19, 254, 0.4);
-            --card-bg: rgba(255, 255, 255, 0.05);
-        }
-
-        body { background-color: var(--bg); color: var(--text); font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; margin: 0; }
-        #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-        
-        .navbar { 
-            background: rgba(0, 0, 0, 0.9); 
-            border-bottom: 1px solid var(--border); 
-            padding: 15px 0; 
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-        }
-        .nav-link { 
-            color: #d1d5db !important; 
-            font-family: 'JetBrains Mono'; 
-            font-size: 0.85rem; 
-            letter-spacing: 1px; 
-            margin: 0 10px;
-            transition: 0.3s;
-        }
-        .nav-link:hover, .nav-link.active { color: var(--cyan) !important; text-shadow: 0 0 8px var(--cyan); }
-        
-        .login-btn {
-            border: 1px solid var(--accent);
-            color: var(--accent) !important;
-            border-radius: 20px;
-            padding: 5px 20px !important;
-            box-shadow: 0 0 10px rgba(188, 19, 254, 0.3);
-        }
-        .login-btn:hover { background: var(--accent); color: white !important; box-shadow: 0 0 20px var(--accent); }
-
-        .brand-name { 
-            font-family: 'JetBrains Mono'; font-weight: 800; color: #fff !important; 
-            text-transform: uppercase; text-decoration: none; text-shadow: 0 0 10px var(--accent); font-size: 1.2rem;
-        }
-
-        /* Hero Bölümü: beypazari1.jpg */
-        .hero-section {
-            padding: 180px 0 100px;
-            background: linear-gradient(rgba(1, 1, 3, 0.7), rgba(1, 1, 3, 0.7)), url('resimler/beypazari1.jpg');
+        /* Bu sayfaya özel Hero arka planı (style.css'i bozmaz) */
+        .heritage-hero {
+            padding: 200px 0 100px;
+            background: linear-gradient(rgba(1, 1, 3, 0.75), rgba(1, 1, 3, 0.75)), url('resimler/beypazari1.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             border-bottom: 2px solid var(--border);
         }
-
-        .section-title { 
-            color: var(--cyan); 
-            font-family: 'JetBrains Mono'; 
-            font-weight: 800; 
-            letter-spacing: 3px; 
-            text-transform: uppercase; 
-            margin-bottom: 50px;
-            text-shadow: 0 0 15px var(--cyan);
-        }
-
-        /* Heritage Kartları */
-        .heritage-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(25px);
-            border: 1px solid var(--border);
-            border-radius: 35px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            height: 100%;
-        }
-        .heritage-card:hover { transform: translateY(-12px); border-color: var(--cyan); box-shadow: 0 0 25px rgba(0, 242, 255, 0.2); }
-        .heritage-card img { height: 230px; width: 100%; object-fit: cover; opacity: 0.8; border-bottom: 2px solid var(--border); }
-        
-        .card-title { color: var(--accent); font-family: 'JetBrains Mono'; font-weight: 800; margin-bottom: 15px; text-transform: uppercase; }
-        .card-text { color: #d1d5db; font-size: 0.95rem; line-height: 1.6; }
     </style>
 </head>
 <body>
@@ -98,7 +31,7 @@
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="brand-name" href="index.html">RÜVEYDA TUZCU</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: var(--border);">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -115,100 +48,100 @@
         </div>
     </nav>
 
-    <header class="hero-section text-center">
+    <header class="heritage-hero text-center">
         <div class="container" data-aos="zoom-in">
-            <h1 class="display-3 fw-bold" style="text-shadow: 0 0 20px var(--accent);">Yaşayan Miras: Beypazarı</h1>
-            <p class="lead" style="color: var(--cyan); font-family: 'JetBrains Mono'; font-weight: 500;"> Tarihin ve Lezzetin Asırlık Buluşma Noktası</p>
+            <h1 class="display-3 fw-bold glitch-text">Yaşayan Miras: Beypazarı</h1>
+            <p class="lead academic-sub">Tarihin ve Lezzetin Asırlık Buluşma Noktası</p>
         </div>
     </header>
 
-    <div class="container py-5 mb-5">
-        <div class="text-center" data-aos="fade-up">
+    <main class="container py-5 mb-5">
+        <div class="text-center mb-5" data-aos="fade-up">
             <h2 class="section-title">Kültürel Hazinelerimiz</h2>
         </div>
         
         <div class="row g-4">
-            <!-- Görsel: beypazari2.jpg -->
-            <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                <div class="heritage-card">
+            <section class="col-md-6 col-lg-4" data-aos="fade-up">
+                <article class="city-card">
                     <img src="resimler/beypazari2.jpg" alt="Beypazarı Evi">
-                    <div class="card-body p-4">
-                        <h5 class="card-title">Tarihi Dokusu</h5>
-                        <p class="card-text">Geleneksel Osmanlı mimarisinin en zarif örnekleriyle süslü asırlık Beypazarı sokakları.</p>
+                    <div class="p-4">
+                        <h5 class="text-purple fw-bold">Tarihi Dokusu</h5>
+                        <p class="text-muted">Geleneksel Osmanlı mimarisinin en zarif örnekleriyle süslü asırlık Beypazarı sokakları.</p>
                     </div>
-                </div>
-            </div>
+                </article>
+            </section>
 
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="heritage-card">
+            <section class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <article class="city-card">
                     <img src="resimler/beypazaritelkari.jpg" alt="Telkari">
-                    <div class="card-body p-4">
-                        <h5 class="card-title">Gümüş Telkari</h5>
-                        <p class="card-text">Usta ellerde sabırla hayat bulan, bölgenin simgesi asırlık gümüş işleme sanatı.</p>
+                    <div class="p-4">
+                        <h5 class="text-purple fw-bold">Gümüş Telkari</h5>
+                        <p class="text-muted">Usta ellerde sabırla hayat bulan, bölgenin simgesi asırlık gümüş işleme sanatı.</p>
                     </div>
-                </div>
-            </div>
+                </article>
+            </section>
 
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="heritage-card">
+            <section class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <article class="city-card">
                     <img src="resimler/beypazariyasayanmuze.jpg" alt="Yaşayan Müze">
-                    <div class="card-body p-4">
-                        <h5 class="card-title">Yaşayan Müze</h5>
-                        <p class="card-text">Eski Ankara kültürünü ve geleneklerini etkileşimli şekilde canlı tutan etnografik durak.</p>
+                    <div class="p-4">
+                        <h5 class="text-purple fw-bold">Yaşayan Müze</h5>
+                        <p class="text-muted">Eski Ankara kültürünü ve geleneklerini etkileşimli şekilde canlı tutan etnografik durak.</p>
                     </div>
-                </div>
-            </div>
+                </article>
+            </section>
 
-            <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                <div class="heritage-card">
+            <section class="col-md-6 col-lg-4" data-aos="fade-up">
+                <article class="city-card">
                     <img src="resimler/beypazarikurusu.jpg" alt="Beypazarı Kurusu">
-                    <div class="card-body p-4">
-                        <h5 class="card-title">Beypazarı Kurusu</h5>
-                        <p class="card-text">Süt ve tereyağı ile hazırlanan, coğrafi işaretli eşsiz lezzet mirası.</p>
+                    <div class="p-4">
+                        <h5 class="text-purple fw-bold">Beypazarı Kurusu</h5>
+                        <p class="text-muted">Süt ve tereyağı ile hazırlanan, coğrafi işaretli eşsiz lezzet mirası.</p>
                     </div>
-                </div>
-            </div>
+                </article>
+            </section>
 
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="heritage-card">
+            <section class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <article class="city-card">
                     <img src="resimler/beypazaribaklava.jpg" alt="80 Katlı Baklava">
-                    <div class="card-body p-4">
-                        <h5 class="card-title">80 Katlı Baklava</h5>
-                        <p class="card-text">İncecik 80 kat yufkanın maharetle dizildiği, damaklarda iz bırakan tatlı geleneği.</p>
+                    <div class="p-4">
+                        <h5 class="text-purple fw-bold">80 Katlı Baklava</h5>
+                        <p class="text-muted">İncecik 80 kat yufkanın maharetle dizildiği, damaklarda iz bırakan tatlı geleneği.</p>
                     </div>
-                </div>
-            </div>
+                </article>
+            </section>
 
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="heritage-card">
+            <section class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <article class="city-card">
                     <img src="resimler/beypazarihavucsuyu.jpg" alt="Havuç Suyu">
-                    <div class="card-body p-4">
-                        <h5 class="card-title">Beypazarı Havucu</h5>
-                        <p class="card-text">Toprağın bereketini yansıtan, bölgenin tarım gücü ve taze sağlık mirası.</p>
+                    <div class="p-4">
+                        <h5 class="text-purple fw-bold">Beypazarı Havucu</h5>
+                        <p class="text-muted">Toprağın bereketini yansıtan, bölgenin tarım gücü ve taze sağlık mirası.</p>
                     </div>
-                </div>
-            </div>
+                </article>
+            </section>
         </div>
-    </div>
+    </main>
 
     <footer class="text-center py-5 text-muted small">
-        <p style="letter-spacing: 2px;">&copy; 2026 RÜVEYDA TUZCU // B251210070</p>
+        <p style="letter-spacing: 2px;">© 2026 RÜVEYDA TUZCU // B251210070</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
         particlesJS('particles-js', {
             particles: {
-                number: { value: 50, density: { enable: true, value_area: 800 } },
+                number: { value: 60, density: { enable: true, value_area: 800 } },
                 color: { value: '#bc13fe' },
-                opacity: { value: 0.3 },
-                line_linked: { enable: true, distance: 150, color: '#bc13fe', opacity: 0.2, width: 1 },
+                opacity: { value: 0.2 },
+                size: { value: 2.5, random: true },
+                line_linked: { enable: true, distance: 150, color: '#bc13fe', opacity: 0.1, width: 1 },
                 move: { speed: 1 }
             }
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
