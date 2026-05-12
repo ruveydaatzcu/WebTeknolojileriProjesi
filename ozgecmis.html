@@ -10,98 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <style>
-        :root {
-            --bg: #010103;
-            --accent: #bc13fe; 
-            --cyan: #00f2ff;
-            --text: #ffffff;
-            --border: rgba(188, 19, 254, 0.4);
-            --card-bg: rgba(255, 255, 255, 0.05);
-        }
-
-        body { background-color: var(--bg); color: var(--text); font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; margin: 0; }
-        #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-        
-        .navbar { 
-            background: rgba(0, 0, 0, 0.9); 
-            border-bottom: 1px solid var(--border); 
-            padding: 15px 0; 
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-        }
-        .nav-link { 
-            color: #d1d5db !important; 
-            font-family: 'JetBrains Mono'; 
-            font-size: 0.85rem; 
-            letter-spacing: 1px; 
-            margin: 0 10px;
-            transition: 0.3s;
-        }
-        .nav-link:hover, .nav-link.active { color: var(--cyan) !important; text-shadow: 0 0 8px var(--cyan); }
-        
-        .login-btn {
-            border: 1px solid var(--accent);
-            color: var(--accent) !important;
-            border-radius: 20px;
-            padding: 5px 20px !important;
-            box-shadow: 0 0 10px rgba(188, 19, 254, 0.3);
-        }
-        .login-btn:hover { background: var(--accent); color: white !important; box-shadow: 0 0 20px var(--accent); }
-
-        .brand-name { 
-            font-family: 'JetBrains Mono'; font-weight: 800; color: #fff !important; 
-            text-transform: uppercase; text-decoration: none; text-shadow: 0 0 10px var(--accent); font-size: 1.2rem;
-        }
-
-        .header-bg {
-            padding: 150px 0 60px;
-            background: linear-gradient(180deg, rgba(188, 19, 254, 0.15) 0%, transparent 100%);
-        }
-
-        .cv-section { 
-            background: var(--card-bg); 
-            backdrop-filter: blur(25px);
-            border: 1px solid var(--border); 
-            border-radius: 30px; 
-            padding: 35px; 
-            margin-bottom: 30px;
-            transition: 0.4s;
-        }
-        .cv-section:hover { border-color: var(--cyan); box-shadow: 0 0 20px rgba(0, 242, 255, 0.15); }
-
-        .text-purple { color: var(--accent) !important; font-family: 'JetBrains Mono'; text-transform: uppercase; letter-spacing: 2px; }
-        
-        /* Okunabilirliği Artırılmış Metin Stilleri */
-        .academic-title { color: #ffffff; font-weight: 800; font-size: 1.25rem; text-shadow: 0 0 10px rgba(255,255,255,0.2); }
-        .academic-sub { color: var(--cyan); font-family: 'JetBrains Mono'; font-weight: 700; }
-        .academic-date { color: #e1e1e1; font-size: 0.95rem; }
-
-        .skill-badge { 
-            background: rgba(0, 242, 255, 0.1); 
-            color: var(--cyan); 
-            padding: 8px 18px; 
-            border-radius: 12px; 
-            display: inline-block; 
-            margin: 5px;
-            font-weight: 700;
-            font-family: 'JetBrains Mono';
-            border: 1px solid rgba(0, 242, 255, 0.3);
-            font-size: 0.85rem;
-        }
-
-        .list-group-item { background: transparent; color: #ffffff; border-color: rgba(255,255,255,0.1); padding: 15px 0; }
-        .bold-white { color: #ffffff; font-weight: 800; }
-        
-        .social-interest {
-            background: rgba(255,255,255,0.08);
-            border: 1px solid var(--border);
-            color: white;
-            padding: 10px 22px;
-            border-radius: 50px;
-            font-weight: 500;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -110,7 +19,7 @@
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="brand-name" href="index.html">RÜVEYDA TUZCU</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: var(--border);">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -130,73 +39,84 @@
     <header class="header-bg text-center">
         <div class="container" data-aos="zoom-in">
             <h1 class="display-4 fw-bold" style="text-shadow: 0 0 15px var(--accent);">Özgeçmiş</h1>
-            <p class="lead" style="color: var(--cyan); font-family: 'JetBrains Mono'; font-weight: 700;">Bilgisayar Mühendisliği Öğrencisi // B251210070</p>
+            <p class="lead" style="color: var(--cyan); font-family: 'JetBrains Mono'; font-weight: 700;">
+                Bilgisayar Mühendisliği Öğrencisi // B251210070
+            </p>
         </div>
     </header>
 
-    <div class="container pb-5">
+    <main class="container py-5">
         <div class="row justify-content-center">
-            <div class="col-lg-9">
+            <div class="col-lg-10">
 
-                <!-- Eğitim Bölümü: Kontrast Artırıldı -->
-                <div class="cv-section" data-aos="fade-up">
-                    <h4 class="text-purple fw-bold mb-4"><i class="fas fa-user-graduate me-2"></i> Eğitim Bilgileri</h4>
-                    <p class="academic-title mb-1">Sakarya Üniversitesi</p>
-                    <p class="academic-sub mb-2">Bilgisayar Mühendisliği Bölümü</p>
-                    <p class="academic-date"><i class="far fa-calendar-alt me-2"></i> Eylül 2025 - Günümüz</p>
-                </div>
+                <section class="cv-section mb-5" data-aos="fade-up">
+                    <h4 class="text-purple fw-bold mb-4"><i class="fas fa-user-graduate me-2"></i> EĞİTİM BİLGİLERİ</h4>
+                    <article>
+                        <p class="academic-title mb-1">Sakarya Üniversitesi</p>
+                        <p class="academic-sub mb-2">Bilgisayar Mühendisliği Bölümü</p>
+                        <p class="academic-date"><i class="far fa-calendar-alt me-2"></i> Eylül 2025 - Günümüz</p>
+                        <p class="mt-3 text-muted">Web Teknolojileri, C#, Veri Yapıları ve Algoritmalar dersleri kapsamında teknik yetkinlik geliştirme süreci.</p>
+                    </article>
+                </section>
 
-                <div class="cv-section" data-aos="fade-up">
-                    <h4 class="text-purple fw-bold mb-4"><i class="fas fa-code me-2"></i> Teknik Yetkinlikler</h4>
-                    <div class="d-flex flex-wrap">
-                        <div class="skill-badge">C++</div>
-                        <div class="skill-badge">C# (OOP)</div>
-                        <div class="skill-badge">Visual Studio 2026</div>
-                        <div class="skill-badge">HTML5 / CSS3</div>
-                        <div class="skill-badge">PHP</div>
-                        <div class="skill-badge">GitHub</div>
+                <section class="cv-section mb-5" data-aos="fade-up">
+                    <h4 class="text-purple fw-bold mb-4"><i class="fas fa-code me-2"></i> TEKNİK YETKİNLİKLER</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="text-cyan mb-3">Programlama Dilleri</h6>
+                            <div class="d-flex flex-wrap">
+                                <span class="skill-badge">C# (OOP)</span> <span class="skill-badge">C++</span> <span class="skill-badge">PHP</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-4 mt-md-0">
+                            <h6 class="text-cyan mb-3">Web & Araçlar</h6>
+                            <div class="d-flex flex-wrap">
+                                <span class="skill-badge">HTML5 / CSS3</span> <span class="skill-badge">Bootstrap 5</span> <span class="skill-badge">GitHub</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </section>
 
-                <div class="cv-section" data-aos="fade-up">
-                    <h4 class="text-purple fw-bold mb-4"><i class="fas fa-project-diagram me-2"></i> Projeler & Sertifikasyonlar</h4>
+                <section class="cv-section mb-5" data-aos="fade-up">
+                    <h4 class="text-purple fw-bold mb-4"><i class="fas fa-project-diagram me-2"></i> PROJELER & DENEYİMLER</h4>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
-                            <span class="bold-white">TEKNOFEST 2026:</span> Sağlıkta Yapay Zeka - Genetik Varyasyon Sınıflandırma Projesi.
-                        </li>
+                            <span class="bold-white">TEKNOFEST 2026:</span> Sağlıkta Yapay Zeka - Genetik Varyasyon Sınıflandırma projesi kapsamında 8.8 milyon satırlık veri analizi.
                         <li class="list-group-item">
                             <span class="bold-white">BTK Akademi:</span> C# ve Nesne Yönelimli Programlama Başarı Sertifikası.
                         </li>
                     </ul>
-                </div>
+                </section>
 
-                <div class="cv-section" data-aos="fade-up">
-                    <h4 class="text-purple fw-bold mb-4"><i class="fas fa-heart me-2"></i> Sosyal İlgi Alanları</h4>
-                    <div class="d-flex flex-wrap gap-3">
-                        <span class="social-interest">🎾 Tenis</span>
-                        <span class="social-interest">🏐 Voleybol</span>
-                        <span class="social-interest">📚 Kitap Okumak</span>
+                <section class="cv-section mb-5" data-aos="fade-up">
+                    <h4 class="text-purple fw-bold mb-4"><i class="fas fa-heart me-2"></i> SOSYAL İLGİ ALANLARI</h4>
+                    <div class="row text-center">
+                        <div class="col-4"><span class="social-interest d-block">🎾 Tenis</span></div>
+                        <div class="col-4"><span class="social-interest d-block">🏐 Voleybol</span></div>
+                        <div class="col-4"><span class="social-interest d-block">📚 Kitap</span></div>
                     </div>
-                </div>
+                </section>
 
             </div>
         </div>
-    </div>
+    </main>
 
     <footer class="text-center py-5 text-muted small">
         <p style="letter-spacing: 2px;">&copy; 2026 RÜVEYDA TUZCU // B251210070</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
         particlesJS('particles-js', {
             particles: {
-                number: { value: 50, density: { enable: true, value_area: 800 } },
+                number: { value: 80, density: { enable: true, value_area: 800 } },
                 color: { value: '#bc13fe' },
-                opacity: { value: 0.3 },
-                line_linked: { enable: true, distance: 150, color: '#bc13fe', opacity: 0.2, width: 1 },
+                opacity: { value: 0.2 },
+                size: { value: 2.5, random: true },
+                line_linked: { enable: true, distance: 150, color: '#bc13fe', opacity: 0.1, width: 1 },
                 move: { speed: 1 }
             }
         });
