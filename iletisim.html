@@ -9,134 +9,41 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
     <style>
-        :root {
-            --bg: #010103;
-            --accent: #bc13fe; 
-            --cyan: #00f2ff;
-            --text: #ffffff;
-            --border: rgba(188, 19, 254, 0.4);
-            --card-bg: rgba(255, 255, 255, 0.05);
-        }
-
-        body { background-color: var(--bg); color: var(--text); font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; margin: 0; }
-        #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-        
-        .navbar { 
-            background: rgba(0, 0, 0, 0.9); 
-            border-bottom: 1px solid var(--border); 
-            padding: 15px 0; 
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-        }
-        .nav-link { 
-            color: #d1d5db !important; 
-            font-family: 'JetBrains Mono'; 
-            font-size: 0.85rem; 
-            letter-spacing: 1px; 
-            margin: 0 10px;
-            transition: 0.3s;
-        }
-        .nav-link:hover, .nav-link.active { color: var(--cyan) !important; text-shadow: 0 0 8px var(--cyan); }
-        
-        .login-btn {
+        /* İletişim sayfasına özel ek buton ve form stilleri */
+        .btn-cyber {
+            width: 100%;
+            padding: 12px;
+            background: transparent;
             border: 1px solid var(--accent);
-            color: var(--accent) !important;
-            border-radius: 20px;
-            padding: 5px 20px !important;
-            box-shadow: 0 0 10px rgba(188, 19, 254, 0.3);
-        }
-        .login-btn:hover { background: var(--accent); color: white !important; box-shadow: 0 0 20px var(--accent); }
-
-        .brand-name { 
-            font-family: 'JetBrains Mono'; font-weight: 800; color: #fff !important; 
-            text-transform: uppercase; text-decoration: none; text-shadow: 0 0 10px var(--accent); font-size: 1.2rem;
-        }
-
-        .header-bg {
-            padding: 150px 0 60px;
-            background: linear-gradient(180deg, rgba(188, 19, 254, 0.15) 0%, transparent 100%);
-        }
-
-        .iletisim-container {
-            display: flex;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto 50px auto;
-            padding: 20px;
-            gap: 40px;
-        }
-
-        .holo-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(25px);
-            border: 1px solid var(--border);
-            border-radius: 35px;
-            padding: 40px;
-            flex: 1;
-            min-width: 320px;
-            transition: 0.4s;
-        }
-
-        .card-header-main {
             color: var(--accent);
             font-family: 'JetBrains Mono';
-            font-weight: 800;
-            margin-bottom: 25px;
+            font-weight: 700;
+            border-radius: 12px;
+            transition: 0.3s;
             text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .bilgi-item { margin: 25px 0; font-size: 1.05rem; color: #d1d5db; }
-        .bilgi-item strong { color: var(--cyan); font-family: 'JetBrains Mono'; margin-right: 10px; }
-        .bilgi-item a { color: #fff; text-decoration: none; transition: 0.3s; }
-        .bilgi-item a:hover { color: var(--accent); text-shadow: 0 0 5px var(--accent); }
-
-        form input, form textarea {
-            width: 100%;
-            background: rgba(0,0,0,0.3);
-            border: 1px solid var(--border);
-            border-radius: 15px;
-            padding: 15px;
-            margin: 10px 0;
-            color: white;
-            font-family: 'Space Grotesk';
-        }
-
-        form input:focus, form textarea:focus {
-            outline: none;
-            border-color: var(--cyan);
-            box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
-        }
-
-        .submit-btn {
-            background: transparent;
-            border: 1px solid var(--cyan);
-            color: var(--cyan);
-            padding: 12px 35px;
-            border-radius: 50px;
-            font-family: 'JetBrains Mono';
-            font-weight: 800;
-            text-transform: uppercase;
-            transition: 0.4s;
+            letter-spacing: 1px;
             margin-top: 15px;
         }
-
-        .submit-btn:hover {
-            background: var(--cyan);
-            color: #000;
-            box-shadow: 0 0 25px var(--cyan);
+        .btn-cyber:hover {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 0 20px var(--accent);
         }
-
-        .map-wrapper {
-            width: 100%;
-            height: 450px;
-            border-radius: 40px;
-            overflow: hidden;
-            border: 2px solid var(--border);
-            margin-top: 20px;
-            box-shadow: 0 0 30px rgba(188, 19, 254, 0.1);
+        .form-control {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid var(--border) !important;
+            color: white !important;
+            border-radius: 12px !important;
+            padding: 12px !important;
+            margin-bottom: 15px;
+        }
+        .form-control:focus {
+            border-color: var(--cyan) !important;
+            box-shadow: 0 0 15px var(--cyan) !important;
         }
     </style>
 </head>
@@ -147,7 +54,7 @@
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="brand-name" href="index.html">RÜVEYDA TUZCU</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: var(--border);">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -166,75 +73,125 @@
 
     <header class="header-bg text-center">
         <div class="container" data-aos="zoom-in">
-            <h1 class="display-3 fw-bold" style="text-shadow: 0 0 20px var(--accent);">Bağlantıda Kalalım</h1>
-            <p class="lead" style="color: var(--cyan); font-family: 'JetBrains Mono'; font-weight: 500;"> Projeler ve İş Birlikleri İçin Mesaj Gönderin</p>
+            <h1 class="display-4 fw-bold glitch-text">İletişim</h1>
+            <p class="lead academic-sub">Bana Ulaşın // Mesaj Bırakın</p>
         </div>
     </header>
 
-    <main class="container">
-        <div class="iletisim-container">
-            <!-- Sol: Form -->
-            <div class="holo-card" data-aos="fade-right">
-                <h4 class="card-header-main">Bana Mesaj Gönderin</h4>
-                <form action="#">
-                    <input type="text" placeholder="Adınız Soyadınız" required>
-                    <input type="email" placeholder="E-posta Adresiniz" required>
-                    <input type="text" placeholder="Konu">
-                    <textarea rows="4" placeholder="Mesajınız..." required></textarea>
-                    <button type="submit" class="submit-btn">Mesajı Gönder</button>
-                </form>
+    <main class="container pb-5">
+        <div class="row g-4 mt-2">
+            <div class="col-lg-7" id="app" data-aos="fade-right">
+                <div class="holo-card">
+                    <h4 class="text-purple fw-bold mb-4"><i class="fas fa-paper-plane me-2"></i> Mesaj Gönder</h4>
+                    <form id="contactForm" action="iletisim_onay.php" method="POST">
+                        <div class="mb-1">
+                            <input type="text" name="ad" v-model="ad" class="form-control" placeholder="Ad Soyad" required>
+                        </div>
+                        <div class="mb-1">
+                            <input type="email" name="email" v-model="email" class="form-control" placeholder="E-posta" required>
+                        </div>
+                        <div class="mb-1">
+                            <input type="text" name="tel" v-model="tel" class="form-control" placeholder="Telefon (05xx xxx xx xx)">
+                        </div>
+                        <div class="mb-1">
+                            <textarea name="mesaj" v-model="mesaj" class="form-control" rows="4" placeholder="Mesajınız..."></textarea>
+                        </div>
+                        
+                        <div class="row g-3 mt-2">
+                            <div class="col-6">
+                                <button type="button" onclick="validateNative()" class="btn-cyber" style="border-color: var(--cyan); color: var(--cyan);">NATIVE JS</button>
+                            </div>
+                            <div class="col-6">
+                                <button type="button" @click="validateVue" class="btn-cyber">VUE.JS</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
 
-            <!-- Sağ: Bilgiler -->
-            <div class="holo-card" data-aos="fade-left">
-                <h4 class="card-header-main">İletişim Kanalları</h4>
-                <div class="bilgi-item">
-                    <strong><i class="fas fa-user"></i> AD SOYAD:</strong> Rüveyda Tuzcu
-                </div>
-                <div class="bilgi-item">
-                    <strong><i class="fas fa-envelope"></i> E-POSTA:</strong> <a href="mailto:ruveyda.tuzcu.ogr.sakarya.edu.tr">ruveyda.tuzcu.ogr.sakarya.edu.tr</a>
-                </div>
-                <div class="bilgi-item">
-                    <strong><i class="fab fa-instagram"></i> INSTAGRAM:</strong> <a href="https://instagram.com/ruvyda.tzcu" target="_blank">@ruvyda.tzcu</a>
-                </div>
-                <div class="bilgi-item">
-                    <strong><i class="fab fa-whatsapp"></i> WHATSAPP:</strong> <a href="https://wa.me/905527082515" target="_blank">0552 708 25 15</a>
-                </div>
-                <div class="bilgi-item">
-                    <strong><i class="fas fa-location-dot"></i> KONUM:</strong> Sakarya Üniversitesi, Sakarya
+            <div class="col-lg-5" data-aos="fade-left">
+                <div class="holo-card">
+                    <h4 class="text-purple fw-bold mb-4"><i class="fas fa-address-book me-2"></i> Bilgilerim</h4>
+                    <div class="mb-4">
+                        <p class="mb-3"><strong class="text-cyan"><i class="fas fa-envelope me-2"></i></strong> ruveyda.tuzcu.ogr.sakarya.edu.tr</p>
+                        <p class="mb-3"><strong class="text-cyan"><i class="fab fa-whatsapp me-2"></i></strong> 0552 708 25 15</p>
+                        <p class="mb-3"><strong class="text-cyan"><i class="fas fa-location-dot me-2"></i></strong> Sakarya Üniversitesi // Mühendislik Fakültesi</p>
+                    </div>
+                    <hr style="border-color: var(--border);">
+                    <div class="text-center mt-4">
+                        <p class="small academic-sub mb-0">Rüveyda Tuzcu</p>
+                        <p class="small text-muted">B251210070</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Harita -->
-        <div class="container mb-5" data-aos="fade-up">
-            <div class="map-wrapper">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m1!1s0x14ccb2a3048590c9:0x20556e431f426188!2sSakarya%20%C3%9Cniversitesi!5m2!1str!2str" 
-                    width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy">
-                </iframe>
+        <div class="row mt-5" data-aos="fade-up">
+            <div class="col-12">
+                <div class="map-wrapper" style="height: 400px; border-radius: 30px; overflow: hidden; border: 1px solid var(--border);">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.61066030999!2d30.329864476629166!3d40.74418653537466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cb43df8996b797%3A0xc07a8b43343c3a4f!2sSakarya%20%C3%9Cniversitesi!5e0!3m2!1str!2str!4v1714152345678!5m2!1str!2str" 
+                            width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy"></iframe>
+                </div>
             </div>
         </div>
     </main>
 
     <footer class="text-center py-5 text-muted small">
-        <p style="letter-spacing: 2px;">&copy; 2026 RÜVEYDA TUZCU // B251210070</p>
+        <p>© 2026 RÜVEYDA TUZCU // B251210070</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
+        
         particlesJS('particles-js', {
             particles: {
-                number: { value: 50, density: { enable: true, value_area: 800 } },
+                number: { value: 60, density: { enable: true, value_area: 800 } },
                 color: { value: '#bc13fe' },
-                opacity: { value: 0.3 },
-                line_linked: { enable: true, distance: 150, color: '#bc13fe', opacity: 0.2, width: 1 },
-                move: { speed: 1.2 }
+                opacity: { value: 0.2 },
+                size: { value: 2.5, random: true },
+                line_linked: { enable: true, distance: 150, color: '#bc13fe', opacity: 0.1, width: 1 },
+                move: { speed: 1 }
             }
         });
+
+        // NATIVE JS VALIDATION
+        function validateNative() {
+            const form = document.getElementById('contactForm');
+            const ad = form.ad.value;
+            const email = form.email.value;
+            
+            if(ad.trim() === "" || email.trim() === "") {
+                alert("Native JS: Lütfen zorunlu alanları (Ad ve Email) doldurun!");
+            } else {
+                form.submit();
+            }
+        }
+
+        // VUE.JS VALIDATION
+        const { createApp } = Vue;
+        createApp({
+            data() {
+                return {
+                    ad: '',
+                    email: '',
+                    tel: '',
+                    mesaj: ''
+                }
+            },
+            methods: {
+                validateVue() {
+                    if (!this.ad || !this.email) {
+                        alert("Vue.js: Ad ve Email alanları boş bırakılamaz!");
+                    } else {
+                        // Vue üzerinden formu gönderme
+                        document.getElementById('contactForm').submit();
+                    }
+                }
+            }
+        }).mount('#app');
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
