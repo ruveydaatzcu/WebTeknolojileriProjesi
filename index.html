@@ -10,84 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <style>
-        :root {
-            --bg: #010103;
-            --accent: #bc13fe; 
-            --cyan: #00f2ff;
-            --text: #ffffff;
-            --border: rgba(188, 19, 254, 0.4);
-            --card-bg: rgba(255, 255, 255, 0.05);
-        }
-
-        body { background-color: var(--bg); color: var(--text); font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; margin: 0; }
-        #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-        
-        .navbar { 
-            background: rgba(0, 0, 0, 0.9); 
-            border-bottom: 1px solid var(--border); 
-            padding: 15px 0; 
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-        }
-        .nav-link { 
-            color: #d1d5db !important; 
-            font-family: 'JetBrains Mono'; 
-            font-size: 0.85rem; 
-            letter-spacing: 1px; 
-            margin: 0 10px;
-            transition: 0.3s;
-        }
-        .nav-link:hover, .nav-link.active { color: var(--cyan) !important; text-shadow: 0 0 8px var(--cyan); }
-        
-        .login-btn {
-            border: 1px solid var(--accent);
-            color: var(--accent) !important;
-            border-radius: 20px;
-            padding: 5px 20px !important;
-            box-shadow: 0 0 10px rgba(188, 19, 254, 0.3);
-        }
-        .login-btn:hover { background: var(--accent); color: white !important; box-shadow: 0 0 20px var(--accent); }
-
-        .brand-name { 
-            font-family: 'JetBrains Mono'; font-weight: 800; color: #fff !important; 
-            text-transform: uppercase; text-decoration: none; text-shadow: 0 0 10px var(--accent); font-size: 1.2rem;
-        }
-
-        .hero { padding: 150px 0 80px; }
-        .glitch-text { font-weight: 800; text-transform: uppercase; text-shadow: 2px 2px 0 var(--accent), -2px -2px 0 var(--cyan); }
-        
-        .profile-box {
-            width: 180px; height: 180px; border-radius: 50%;
-            border: 3px solid var(--accent);
-            box-shadow: 0 0 30px var(--accent); margin: 0 auto;
-            overflow: hidden; background: #000;
-        }
-        .profile-box img { width: 100%; height: 100%; object-fit: cover; }
-
-        .holo-card {
-            background: var(--card-bg); backdrop-filter: blur(25px);
-            border: 1px solid var(--border); border-radius: 40px; 
-            padding: 40px; transition: 0.5s; height: 100%;
-        }
-        .card-header-main { color: var(--accent); font-family: 'JetBrains Mono'; font-weight: 800; text-transform: uppercase; margin-bottom: 25px; }
-
-        .uni-header { display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 35px; width: 100%; }
-        .uni-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--cyan), transparent); }
-        .uni-title { color: var(--cyan); font-family: 'JetBrains Mono'; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; font-size: 1.1rem; text-align: center; }
-
-        .video-dashboard {
-            position: relative; width: 100%; padding-bottom: 56.25%; height: 0;
-            border-radius: 35px; overflow: hidden; border: 2px solid var(--border); background: #000;
-        }
-        .video-dashboard iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-
-        .tech-badge {
-            background: rgba(0,0,0,0.4); border: 1px solid var(--border);
-            color: var(--cyan); padding: 8px 16px; border-radius: 12px;
-            font-family: 'JetBrains Mono'; font-weight: 700; font-size: 0.8rem; margin: 5px; display: inline-block;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -96,7 +19,7 @@
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="brand-name" href="index.html">RÜVEYDA TUZCU</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: var(--border);">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -113,62 +36,68 @@
         </div>
     </nav>
 
-    <header class="container hero text-center">
+    <header class="container hero">
         <div data-aos="zoom-in">
-            <div class="profile-box mb-4">
-                <img src="resimler/profilim.jpg" alt="RT" onerror="this.src='https://via.placeholder.com/180x180?text=RT'">
+            <div class="profile-card-horizontal">
+                <div class="profile-img-container">
+                    <img src="resimler/profilim.jpg" alt="Rüveyda Tuzcu" onerror="this.src='https://via.placeholder.com/200x200?text=RT'">
+                </div>
+                <div class="profile-info-text">
+                    <h1 class="glitch-text mb-0">Rüveyda Tuzcu</h1>
+                    <p class="fs-3" style="color: var(--cyan); font-weight: 300; font-family: 'JetBrains Mono';">
+                        Bilgisayar Mühendisliği Öğrencisi
+                    </p>
+                </div>
             </div>
-            <h1 class="display-3 glitch-text">Rüveyda Tuzcu</h1>
-            <p class="fs-4 mt-3" style="color: var(--cyan); font-weight: 300;">Bilgisayar Mühendisliği Öğrencisi</p>
         </div>
     </header>
 
     <main class="container">
         <div class="row g-4">
-            <div class="col-lg-5" data-aos="fade-right">
-                <div class="holo-card">
-                    <h4 class="card-header-main">Akademik Profil</h4>
-                    <p><span style="color:white; font-weight:800;">Öğrenci No:</span> <span style="font-family: 'JetBrains Mono'; color: var(--cyan); font-weight: 800;">B251210070</span></p>
-                    <p><span style="color:white; font-weight:800;">Eğitim:</span> Sakarya Üniversitesi</p>
-                    <hr style="border-color: var(--border);">
+            
+            <section class="col-lg-5" data-aos="fade-right">
+                <article class="holo-card">
+                    <h4 class="section-title">Akademik Profil</h4>
+                    <p><span class="fw-bold">Öğrenci No:</span> <span class="student-no">B251210070</span></p>
+                    <p><span class="fw-bold">Eğitim:</span> Sakarya Üniversitesi</p>
+                    <hr style="border-color: var(--border); opacity: 1;">
                     <div class="mt-4">
-                        <div class="tech-badge">🚀 Teknofest 2026</div>
-                        <div class="tech-badge">🧠 Sağlıkta Yapay Zeka</div>
-                        <div class="tech-badge">📊 Veri Analitiği</div>
-                        <div class="tech-badge">🔍 Model Açıklanabilirliği</div>
+                        <span class="tech-badge">🚀 Teknofest 2026</span>
+                        <span class="tech-badge">🧠 Sağlıkta Yapay Zeka</span>
+                        <span class="tech-badge">📊 Veri Analitiği</span>
                     </div>
-                </div>
-            </div>
+                </article>
+            </section>
 
-            <div class="col-lg-7" data-aos="fade-left">
-                <div class="holo-card">
-                    <h4 class="card-header-main">Akademik Vizyon</h4>
-                    <p style="color: #d1d5db; line-height: 1.8; text-align: justify;">
-                        Sakarya Üniversitesi bünyesindeki lisans eğitimim süresince, teorik algoritmik temelleri pratik mühendislik çözümleriyle birleştirmeye odaklanıyorum. Özellikle Nesneye Dayalı Programlama (OOP) ve veri yapıları alanında yetkinlik kazanırken, akademik çalışmalarımı <strong>yapay zeka disiplini</strong> üzerinde yoğunlaştırıyorum. 
+            <section class="col-lg-7" data-aos="fade-left">
+                <article class="holo-card">
+                    <h4 class="section-title">Akademik Vizyon</h4>
+                    <p class="vision-text">
+                        Lisans eğitimim süresince, teorik algoritmik temelleri pratik mühendislik çözümleriyle birleştirmeye odaklanıyorum. Özellikle Nesneye Dayalı Programlama (OOP) ve veri yapıları alanında yetkinlik kazanırken, akademik çalışmalarımı <strong>yapay zeka disiplini</strong> üzerinde yoğunlaştırıyorum. 
                         <br><br>
-                        <strong>Teknofest 2026 Sağlıkta Yapay Zeka</strong> yarışması kapsamında 8.8 milyon satırlık ham veri setleri üzerinde çalışarak veri optimizasyonu süreçlerinde teknik disiplin kazandım.
+                        <strong>Teknofest 2026 Sağlıkta Yapay Zeka</strong> yarışması kapsamında veri optimizasyonu süreçlerinde teknik disiplin kazandım.
                     </p>
-                </div>
-            </div>
+                </article>
+            </section>
 
-            <div class="col-12 mt-4 mb-5" data-aos="fade-up">
+            <section class="col-12 mt-4 mb-5" data-aos="fade-up">
                 <div class="holo-card">
-                    <!-- İstediğin başlık eklendi -->
-                    <div class="uni-header">
-                        <div class="uni-line"></div>
-                        <div class="uni-title">
-                            ÜNİVERSİTEMİN TANITIM VİDEOSU: SAKARYA ÜNİVERSİTESİ
-                        </div>
-                        <div class="uni-line"></div>
+                    <div class="uni-header text-center mb-4">
+                        <h2 class="uni-title" style="font-size: 1.5rem;">ÜNİVERSİTEMİN TANITIM VİDEOSU</h2>
                     </div>
                     <div class="video-dashboard">
                         <iframe src="https://streamable.com/e/5pylsb" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     </main>
 
+    <footer class="text-center py-5 text-muted small">
+        <p style="letter-spacing: 2px;">© 2026 RÜVEYDA TUZCU // B251210070</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
