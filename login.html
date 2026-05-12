@@ -3,87 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giriş Paneli | Rüveyda Tuzcu</title>
+    <title>Giriş Paneli // Rüveyda Tuzcu</title>
     
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;800&family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div id="particles-js"></div>
 
-    <header>
-        <nav class="navbar navbar-expand-lg fixed-top">
-            <div class="container">
-                <a class="navbar-brand text-white fw-bold" href="index.html">RÜVEYDA TUZCU</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Hakkımda</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ozgecmis.html">Özgeçmiş</a></li>
-                        <li class="nav-item"><a class="nav-link" href="sehrim.html">Şehrim</a></li>
-                        <li class="nav-item"><a class="nav-link" href="miras.html">Mirasımız</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ilgi_alanlarim.html">İlgi Alanlarım</a></li>
-                        <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="login.html">Login</a></li>
-                    </ul>
-                </div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="brand-name" href="index.html">RÜVEYDA TUZCU</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Hakkımda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ozgecmis.html">Özgeçmiş</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sehrim.html">Şehrim</a></li>
+                    <li class="nav-item"><a class="nav-link" href="miras.html">Mirasımız</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ilgi_alanlarim.html">İlgi Alanlarım</a></li>
+                    <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="login.html">Login</a></li>
+                </ul>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
-    <main class="container d-flex align-items-center justify-content-center" style="min-height: 100vh;">
-        <section class="login-card p-5 shadow-lg text-center" style="background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border-radius: 30px; border: 1px solid rgba(188, 19, 254, 0.4); max-width: 450px; width: 100%;">
+    <main class="container d-flex align-items-center justify-content-center" style="min-height: 100vh; padding-top: 80px;">
+        <section class="login-card p-5" data-aos="flip-left" style="background: rgba(255,255,255,0.05); backdrop-filter: blur(15px); border-radius: 40px; border: 1px solid var(--border); max-width: 500px; width: 100%;">
             
-            <h2 class="mb-4" style="color: #00f2ff; font-family: 'JetBrains Mono';">SİSTEM ERİŞİMİ</h2>
+            <div class="text-center mb-5">
+                <i class="fas fa-user-shield fa-3x text-purple mb-3"></i>
+                <h2 class="glitch-text">Sistem Erişimi</h2>
+                <p class="small text-cyan" style="font-family: 'JetBrains Mono';">Sakarya Üniversitesi Kimlik Doğrulama</p>
+            </div>
 
             <form action="login.php" method="POST" onsubmit="return validateLogin()">
-                <div class="mb-3 text-start">
-                    <label class="form-label small text-info">E-Posta (Öğrenci No)</label>
-                    <input type="email" id="email" name="email" class="form-control bg-dark text-white border-secondary" placeholder="b251210070@sakarya.edu.tr">
-                </div>
                 <div class="mb-4 text-start">
-                    <label class="form-label small text-info">Şifre (Öğrenci No)</label>
-                    <input type="password" id="password" name="password" class="form-control bg-dark text-white border-secondary" placeholder="b251210070">
+                    <label class="form-label small text-purple ms-2">E-POSTA</label>
+                    <input type="email" id="email" name="email" class="form-control" 
+                           placeholder="b251210070@sakarya.edu.tr" 
+                           style="background: rgba(0,0,0,0.3); border: 1px solid var(--border); color: white; border-radius: 15px; padding: 12px;">
                 </div>
-                <button type="submit" class="btn btn-outline-info w-100 py-3 fw-bold shadow">GİRİŞİ BAŞLAT</button>
+                <div class="mb-5 text-start">
+                    <label class="form-label small text-purple ms-2">ŞİFRE</label>
+                    <input type="password" id="password" name="password" class="form-control" 
+                           placeholder="Şifre (Öğrenci No)"
+                           style="background: rgba(0,0,0,0.3); border: 1px solid var(--border); color: white; border-radius: 15px; padding: 12px;">
+                </div>
+                <button type="submit" class="btn-cyber w-100 py-3 fw-bold" style="border: 1px solid var(--cyan); color: var(--cyan); background: transparent; border-radius: 15px; transition: 0.4s;">
+                    OTURUMU AÇ
+                </button>
             </form>
             
         </section>
     </main>
 
-    <footer class="text-center py-3 text-secondary" style="font-size: 0.8rem;">
-        <p>© 2026 Rüveyda Tuzcu | B251210070 [cite: 18]</p>
+    <footer class="text-center py-5 text-muted small">
+        <p>© 2026 Rüveyda Tuzcu // B251210070</p>
     </footer>
-
-    <script>
-    function validateLogin() {
-        var email = document.getElementById('email').value.trim();
-        var pass = document.getElementById('password').value.trim();
-        
-        if (email === "" || pass === "") {
-            alert("Hata: Tüm alanlar doldurulmalıdır! ");
-            return false;
-        }
-        
-        // Basit mail format kontrolü
-        if (!email.includes("@") || !email.includes(".")) {
-            alert("Hata: Geçerli bir e-posta adresi giriniz! [cite: 24]");
-            return false;
-        }
-        return true; 
-    }
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        AOS.init({ duration: 1000, once: true });
+
+        function validateLogin() {
+            var email = document.getElementById('email').value.trim();
+            var pass = document.getElementById('password').value.trim();
+            
+            if (email === "" || pass === "") {
+                alert("Hata: Kullanıcı adı ve şifre boş bırakılamaz!");
+                return false;
+            }
+            
+            // Mail formatı kontrolü (PDF kuralı)
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert("Hata: Geçerli bir e-posta adresi giriniz!");
+                return false;
+            }
+            return true; 
+        }
+
         particlesJS('particles-js', {
-            particles: { number: { value: 40 }, color: { value: '#bc13fe' }, line_linked: { color: '#bc13fe', opacity: 0.2 }, move: { speed: 1 } }
+            particles: {
+                number: { value: 50 },
+                color: { value: '#bc13fe' },
+                opacity: { value: 0.2 },
+                size: { value: 3 },
+                line_linked: { enable: true, color: '#bc13fe', opacity: 0.1 },
+                move: { speed: 1 }
+            }
         });
     </script>
 </body>
