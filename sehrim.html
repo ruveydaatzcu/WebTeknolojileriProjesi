@@ -3,13 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rüveyda Tuzcu // Şehrim Ankara</title>
+    <title>Rüveyda Tuzcu // Şehrim</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;800&family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Slider Düzenlemeleri */
+        .carousel-item {
+            height: 65vh;
+            min-height: 450px;
+            background-size: cover;
+            background-position: center;
+        }
+        .carousel-caption {
+            background: rgba(1, 1, 3, 0.7);
+            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            padding: 30px;
+            bottom: 15%;
+            border: 1px solid var(--border);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Nüfus Bilgisi Paneli */
+        .pop-info {
+            background: rgba(188, 19, 254, 0.05);
+            border: 1px solid rgba(188, 19, 254, 0.2);
+            border-radius: 15px;
+            padding: 15px 25px;
+            margin-top: 20px;
+            color: #ddd;
+            display: inline-block;
+        }
+
+        /* Kart Sistemi */
+        .city-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(188, 19, 254, 0.2);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .city-card:hover {
+            transform: translateY(-12px);
+            border-color: #bc13fe;
+            box-shadow: 0 20px 40px rgba(188, 19, 254, 0.25);
+        }
+
+        .city-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .city-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .badge-category {
+            background: rgba(188, 19, 254, 0.1);
+            color: #bc13fe;
+            border: 1px solid #bc13fe;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body>
 
@@ -25,7 +108,7 @@
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="index.html">Hakkımda</a></li>
                     <li class="nav-item"><a class="nav-link" href="ozgecmis.html">Özgeçmiş</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="sehrim.html">Şehrim</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="sehrim.html">Şehrim</a></li> 
                     <li class="nav-item"><a class="nav-link" href="miras.html">Mirasımız</a></li>
                     <li class="nav-item"><a class="nav-link" href="ilgi_alanlarim.html">İlgi Alanlarım</a></li>
                     <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
@@ -35,57 +118,105 @@
         </div>
     </nav>
 
-    <header class="header-bg text-center">
-        <div class="container" data-aos="zoom-in">
-            <h1 class="display-3 fw-bold city-main-title">Başkent Ankara</h1>
-            <p class="lead city-sub-title">Tarihin Kalbi, Modern Türkiye'nin Simgesi</p>
+    <section id="cityCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" style="margin-top: 85px; position: relative; z-index: 2;">
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url('resimler/anitkabir.jpg');">
+                <div class="carousel-caption"><h2>Anıtkabir</h2><p>Cumhuriyetimizin Kalbi</p></div>
+            </div>
+            <div class="carousel-item" style="background-image: url('resimler/ankara-kalesi.jpg');">
+                <div class="carousel-caption"><h2>Ankara Kalesi</h2><p>Tarihin İzleri</p></div>
+            </div>
+            <div class="carousel-item" style="background-image: url('resimler/atakule.jpg');">
+                <div class="carousel-caption"><h2>Atakule</h2><p>Şehrin Zirvesi</p></div>
+            </div>
+            <div class="carousel-item" style="background-image: url('resimler/beypazari1.jpg');">
+                <div class="carousel-caption"><h2>Beypazarı</h2><p>Eski Ankara Kültürü</p></div>
+            </div>
+            <div class="carousel-item" style="background-image: url('resimler/kugulupark.jpg');">
+                <div class="carousel-caption"><h2>Kuğulu Park</h2><p>Huzur Dolu Bir Mola</p></div>
+            </div>
+            <div class="carousel-item" style="background-image: url('resimler/eskimeclis.jpg');">
+                <div class="carousel-caption"><h2>Eski Meclis</h2><p>Milli İradenin Doğuşu</p></div>
+            </div>
+            <div class="carousel-item" style="background-image: url('resimler/kocatepecamii.jpg');">
+                <div class="carousel-caption"><h2>Kocatepe Camii</h2><p>İhtişamlı Silüet</p></div>
+            </div>
+            <div class="carousel-item" style="background-image: url('resimler/hamamonu.jpg');">
+                <div class="carousel-caption"><h2>Hamamönü</h2><p>Restore Edilen Tarih</p></div>
+            </div>
+            <div class="carousel-item" style="background-image: url('resimler/anadolu-medeniyet-muzesi.jpg');">
+                <div class="carousel-caption"><h2>Medeniyetler Müzesi</h2><p>Kadim Anadolu</p></div>
+            </div>
         </div>
-    </header>
+        <button class="carousel-control-prev" data-bs-target="#cityCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+        <button class="carousel-control-next" data-bs-target="#cityCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+    </section>
 
-    <main class="container pb-5">
-        
-        <section id="ankaraSlider" class="carousel slide mb-5" data-bs-ride="carousel" data-aos="fade-up">
-            <div class="carousel-inner">
-                <div class="carousel-item active"><img src="resimler/anitkabir.jpg" class="d-block w-100" alt="Anıtkabir"><div class="carousel-caption"><h5>Anıtkabir</h5></div></div>
-                <div class="carousel-item"><img src="resimler/ankara-kalesi.jpg" class="d-block w-100" alt="Kale"><div class="carousel-caption"><h5>Ankara Kalesi</h5></div></div>
-                <div class="carousel-item"><img src="resimler/atakule.jpg" class="d-block w-100" alt="Atakule"><div class="carousel-caption"><h5>Atakule</h5></div></div>
-                <div class="carousel-item"><img src="resimler/anadolu-medeniyet-muzesi.jpg" class="d-block w-100" alt="Müze"><div class="carousel-caption"><h5>Medeniyetler Müzesi</h5></div></div>
-                <div class="carousel-item"><img src="resimler/eskimeclis.jpg" class="d-block w-100" alt="Meclis"><div class="carousel-caption"><h5>I. TBMM Binası</h5></div></div>
-                <div class="carousel-item"><img src="resimler/kugulupark.jpg" class="d-block w-100" alt="Kuğulu"><div class="carousel-caption"><h5>Kuğulu Park</h5></div></div>
-                <div class="carousel-item"><img src="resimler/kocatepecamii.jpg" class="d-block w-100" alt="Cami"><div class="carousel-caption"><h5>Kocatepe Camii</h5></div></div>
-                <div class="carousel-item"><img src="resimler/hamamonu.jpg" class="d-block w-100" alt="Hamamönü"><div class="carousel-caption"><h5>Hamamönü</h5></div></div>
-                <div class="carousel-item"><img src="resimler/beypazari1.jpg" class="d-block w-100" alt="Beypazarı"><div class="carousel-caption"><h5>Beypazarı</h5></div></div>
+    <main class="container py-5" style="position: relative; z-index: 2;">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="section-title">Ankara Rehberi</h2>
+            <div class="pop-info"><i class="fas fa-users text-purple me-2"></i> Ankara Nüfusu (2023): <strong>5.803.482</strong></div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <article class="city-card" data-aos="fade-up">
+                    <img src="resimler/anitkabir.jpg" alt="Anıtkabir">
+                    <div class="p-4"><span class="badge-category">CUMHURİYET</span><h5>Anıtkabir</h5><p class="text-muted">Ata'mızın ebedi istirahatgahı.</p></div>
+                </article>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#ankaraSlider" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
-            <button class="carousel-control-next" type="button" data-bs-target="#ankaraSlider" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
-        </section>
-
-        <section class="info-panel mb-5" data-aos="fade-up">
-            <div class="row align-items-center">
-                <div class="col-md-4 text-center">
-                    <h2 class="display-6 fw-bold text-cyan">Nüfus</h2>
-                    <p class="fs-4 jet-mono">~5.8 Milyon</p>
-                </div>
-                <div class="col-md-8">
-                    <p class="fs-5 info-text">Türkiye'nin kalbi Ankara, modern ve tarihi dokusuyla büyüleyici bir başkenttir.</p>
-                </div>
+            <div class="col-md-6 col-lg-4">
+                <article class="city-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="resimler/ankara-kalesi.jpg" alt="Kale">
+                    <div class="p-4"><span class="badge-category">TARİH</span><h5>Ankara Kalesi</h5><p class="text-muted">Şehrin en eski yapısı.</p></div>
+                </article>
             </div>
-        </section>
-
-        <section class="row g-4">
-            <div class="col-md-6 col-lg-4"><article class="city-card"><img src="resimler/anitkabir.jpg"><div class="card-body p-4 text-center"><h5 class="card-title">Anıtkabir</h5><p class="card-text">Atatürk'ün ebedi istirahatgahı.</p></div></article></div>
-            <div class="col-md-6 col-lg-4"><article class="city-card"><img src="resimler/ankara-kalesi.jpg"><div class="card-body p-4 text-center"><h5 class="card-title">Ankara Kalesi</h5><p class="card-text">Tarihi surlar ve manzara.</p></div></article></div>
-            <div class="col-md-6 col-lg-4"><article class="city-card"><img src="resimler/atakule.jpg"><div class="card-body p-4 text-center"><h5 class="card-title">Atakule</h5><p class="card-text">Şehrin modern simgesi.</p></div></article></div>
-            <div class="col-md-6 col-lg-4"><article class="city-card"><img src="resimler/anadolu-medeniyet-muzesi.jpg"><div class="card-body p-4 text-center"><h5 class="card-title">Medeniyetler Müzesi</h5><p class="card-text">Eşsiz tarihi eserler.</p></div></article></div>
-            <div class="col-md-6 col-lg-4"><article class="city-card"><img src="resimler/eskimeclis.jpg"><div class="card-body p-4 text-center"><h5 class="card-title">I. TBMM Binası</h5><p class="card-text">Cumhuriyetin doğduğu yer.</p></div></article></div>
-            <div class="col-md-6 col-lg-4"><article class="city-card"><img src="resimler/kugulupark.jpg"><div class="card-body p-4 text-center"><h5 class="card-title">Kuğulu Park</h5><p class="card-text">Şehirde huzurlu bir mola.</p></div></article></div>
-            <div class="col-md-6 col-lg-4"><article class="city-card"><img src="resimler/kocatepecamii.jpg"><div class="card-body p-4 text-center"><h5 class="card-title">Kocatepe Camii</h5><p class="card-text">Görkemli mimari yapı.</p></div></article></div>
-            <div class="col-md-6 col-lg-4"><article class="city-card"><img src="resimler/hamamonu.jpg"><div class="card-body p-4 text-center"><h5 class="card-title">Hamamönü</h5><p class="card-text">Restore edilmiş Ankara evleri.</p></div></article></div>
-            <div class="col-md-6 col-lg-4"><article class="city-card"><img src="resimler/beypazari1.jpg"><div class="card-body p-4 text-center"><h5 class="card-title">Beypazarı</h5><p class="card-text">Tarihi konaklar ve lezzetler.</p></div></article></div>
-        </section>
+            <div class="col-md-6 col-lg-4">
+                <article class="city-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="resimler/atakule.jpg" alt="Atakule">
+                    <div class="p-4"><span class="badge-category">MODERN</span><h5>Atakule</h5><p class="text-muted">Modern başkent simgesi.</p></div>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <article class="city-card" data-aos="fade-up">
+                    <img src="resimler/beypazari1.jpg" alt="Beypazarı">
+                    <div class="p-4"><span class="badge-category">KÜLTÜR</span><h5>Beypazarı</h5><p class="text-muted">Tarihi dokusuyla Beypazarı.</p></div>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <article class="city-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="resimler/kugulupark.jpg" alt="Kuğulu">
+                    <div class="p-4"><span class="badge-category">DOĞA</span><h5>Kuğulu Park</h5><p class="text-muted">Ankara'nın nefes alanı.</p></div>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <article class="city-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="resimler/eskimeclis.jpg" alt="Meclis">
+                    <div class="p-4"><span class="badge-category">TARİH</span><h5>I. TBMM Binası</h5><p class="text-muted">Milli mücadelenin merkezi.</p></div>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <article class="city-card" data-aos="fade-up">
+                    <img src="resimler/kocatepecamii.jpg" alt="Cami">
+                    <div class="p-4"><span class="badge-category">İNANÇ</span><h5>Kocatepe Camii</h5><p class="text-muted">Şehrin görkemli camisi.</p></div>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <article class="city-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="resimler/hamamonu.jpg" alt="Hamamönü">
+                    <div class="p-4"><span class="badge-category">KÜLTÜR</span><h5>Hamamönü</h5><p class="text-muted">Tarihi Ankara evleri.</p></div>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <article class="city-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="resimler/anadolu-medeniyet-muzesi.jpg" alt="Müze">
+                    <div class="p-4"><span class="badge-category">MÜZE</span><h5>Medeniyetler Müzesi</h5><p class="text-muted">Anadolu tarihi burada.</p></div>
+                </article>
+            </div>
+        </div>
     </main>
 
-    <footer class="text-center py-5 text-muted small">
+    <footer class="text-center py-5 text-muted small" style="position: relative; z-index: 2;">
         <p style="letter-spacing: 2px;">© 2026 RÜVEYDA TUZCU // B251210070</p>
     </footer>
 
@@ -94,13 +225,12 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
-        // Particles Ayarları (Burayı değiştirme, temanın parçası)
         particlesJS('particles-js', {
             particles: {
-                number: { value: 60 },
+                number: { value: 50 },
                 color: { value: '#bc13fe' },
-                line_linked: { enable: true, color: '#bc13fe', opacity: 0.2 },
-                move: { speed: 1 }
+                opacity: { value: 0.1 },
+                line_linked: { enable: true, color: '#bc13fe', opacity: 0.1 }
             }
         });
     </script>
