@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = htmlspecialchars($_POST['email']);
     $sifre = htmlspecialchars($_POST['password']);
 
-    // Bilgilerin doğruluğunu karşılaştır
+    // ÖDEV ŞARTI: Bilgilerin doğruluğunu karşılaştır
     $ogrenciNo = "b251210070";
     $dogru_mail = $ogrenciNo . "@sakarya.edu.tr";
     $dogru_sifre = $ogrenciNo;
