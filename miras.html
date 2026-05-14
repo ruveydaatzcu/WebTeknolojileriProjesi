@@ -13,14 +13,60 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Bu sayfaya özel Hero arka planı (style.css'i bozmaz) */
+        /* Hero Arka Planı */
         .heritage-hero {
             padding: 200px 0 100px;
             background: linear-gradient(rgba(1, 1, 3, 0.75), rgba(1, 1, 3, 0.75)), url('resimler/beypazari1.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            position: relative; 
+            z-index: 10;
             border-bottom: 2px solid var(--border);
+        }
+
+        /* Kart ve Görsel Hizalama Ayarları */
+        .city-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.05); /* Kartlara hafif belirginlik */
+            border: 1px solid rgba(188, 19, 254, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .city-card:hover {
+            transform: translateY(-10px);
+            border-color: #bc13fe;
+            box-shadow: 0 10px 30px rgba(188, 19, 254, 0.2);
+        }
+
+        .city-card img {
+            width: 100%;
+            height: 250px; /* Tüm fotoğrafları bu yükseklikte sabitler */
+            object-fit: cover; /* Fotoğrafın oranını bozmadan alanı doldurur */
+            object-position: center;
+            flex-shrink: 0;
+        }
+
+        .city-card .p-4 {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .city-card p {
+            margin-bottom: 0; /* Metinlerin alt boşluğunu dengeler */
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            top: 0;
+            left: 0;
         }
     </style>
 </head>
@@ -55,75 +101,75 @@
         </div>
     </header>
 
-    <main class="container py-5 mb-5">
+    <main class="container py-5 mb-5" style="position: relative; z-index: 2;">
         <div class="text-center mb-5" data-aos="fade-up">
             <h2 class="section-title">Kültürel Hazinelerimiz</h2>
         </div>
         
         <div class="row g-4">
-            <section class="col-md-6 col-lg-4" data-aos="fade-up">
-                <article class="city-card">
+            <div class="col-md-6 col-lg-4">
+                <article class="city-card" data-aos="fade-up">
                     <img src="resimler/beypazari2.jpg" alt="Beypazarı Evi">
                     <div class="p-4">
                         <h5 class="text-purple fw-bold">Tarihi Dokusu</h5>
                         <p class="text-muted">Geleneksel Osmanlı mimarisinin en zarif örnekleriyle süslü asırlık Beypazarı sokakları.</p>
                     </div>
                 </article>
-            </section>
+            </div>
 
-            <section class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <article class="city-card">
+            <div class="col-md-6 col-lg-4">
+                <article class="city-card" data-aos="fade-up" data-aos-delay="100">
                     <img src="resimler/beypazaritelkari.jpg" alt="Telkari">
                     <div class="p-4">
                         <h5 class="text-purple fw-bold">Gümüş Telkari</h5>
                         <p class="text-muted">Usta ellerde sabırla hayat bulan, bölgenin simgesi asırlık gümüş işleme sanatı.</p>
                     </div>
                 </article>
-            </section>
+            </div>
 
-            <section class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <article class="city-card">
+            <div class="col-md-6 col-lg-4">
+                <article class="city-card" data-aos="fade-up" data-aos-delay="200">
                     <img src="resimler/beypazariyasayanmuze.jpg" alt="Yaşayan Müze">
                     <div class="p-4">
                         <h5 class="text-purple fw-bold">Yaşayan Müze</h5>
                         <p class="text-muted">Eski Ankara kültürünü ve geleneklerini etkileşimli şekilde canlı tutan etnografik durak.</p>
                     </div>
                 </article>
-            </section>
+            </div>
 
-            <section class="col-md-6 col-lg-4" data-aos="fade-up">
-                <article class="city-card">
+            <div class="col-md-6 col-lg-4">
+                <article class="city-card" data-aos="fade-up">
                     <img src="resimler/beypazarikurusu.jpg" alt="Beypazarı Kurusu">
                     <div class="p-4">
                         <h5 class="text-purple fw-bold">Beypazarı Kurusu</h5>
                         <p class="text-muted">Süt ve tereyağı ile hazırlanan, coğrafi işaretli eşsiz lezzet mirası.</p>
                     </div>
                 </article>
-            </section>
+            </div>
 
-            <section class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <article class="city-card">
+            <div class="col-md-6 col-lg-4">
+                <article class="city-card" data-aos="fade-up" data-aos-delay="100">
                     <img src="resimler/beypazaribaklava.jpg" alt="80 Katlı Baklava">
                     <div class="p-4">
                         <h5 class="text-purple fw-bold">80 Katlı Baklava</h5>
                         <p class="text-muted">İncecik 80 kat yufkanın maharetle dizildiği, damaklarda iz bırakan tatlı geleneği.</p>
                     </div>
                 </article>
-            </section>
+            </div>
 
-            <section class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <article class="city-card">
+            <div class="col-md-6 col-lg-4">
+                <article class="city-card" data-aos="fade-up" data-aos-delay="200">
                     <img src="resimler/beypazarihavucsuyu.jpg" alt="Havuç Suyu">
                     <div class="p-4">
                         <h5 class="text-purple fw-bold">Beypazarı Havucu</h5>
                         <p class="text-muted">Toprağın bereketini yansıtan, bölgenin tarım gücü ve taze sağlık mirası.</p>
                     </div>
                 </article>
-            </section>
+            </div>
         </div>
     </main>
 
-    <footer class="text-center py-5 text-muted small">
+    <footer class="text-center py-5 text-muted small" style="position: relative; z-index: 2;">
         <p style="letter-spacing: 2px;">© 2026 RÜVEYDA TUZCU // B251210070</p>
     </footer>
 
