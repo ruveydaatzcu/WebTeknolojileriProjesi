@@ -11,9 +11,8 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
+ 
     <style>
-        /* İletişim sayfasına özel ek buton ve form stilleri */
         .btn-cyber {
             width: 100%;
             padding: 12px;
@@ -27,13 +26,14 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-top: 15px;
+            cursor: pointer;
         }
         .btn-cyber:hover {
             background: var(--accent);
             color: white;
             box-shadow: 0 0 20px var(--accent);
         }
-        .form-control {
+        .form-control, .form-select {
             background: rgba(255, 255, 255, 0.05) !important;
             border: 1px solid var(--border) !important;
             color: white !important;
@@ -41,16 +41,48 @@
             padding: 12px !important;
             margin-bottom: 15px;
         }
-        .form-control:focus {
+        .form-select option {
+            background: #1a0030;
+            color: white;
+        }
+        .form-control:focus, .form-select:focus {
             border-color: var(--cyan) !important;
             box-shadow: 0 0 15px var(--cyan) !important;
+        }
+        .form-check-label {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        .form-check-input {
+            background-color: transparent;
+            border-color: var(--border);
+        }
+        .form-check-input:checked {
+            background-color: var(--accent);
+            border-color: var(--accent);
+        }
+        .form-label {
+            color: var(--cyan);
+            font-family: 'JetBrains Mono';
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .error-msg {
+            color: #ff4d4d;
+            font-size: 0.82rem;
+            font-family: 'JetBrains Mono';
+            margin-top: -10px;
+            margin-bottom: 8px;
+            display: none;
         }
     </style>
 </head>
 <body>
-
+ 
     <div id="particles-js"></div>
-
+ 
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="brand-name" href="index.html">RÜVEYDA TUZCU</a>
@@ -70,50 +102,110 @@
             </div>
         </div>
     </nav>
-
+ 
     <header class="header-bg text-center">
         <div class="container" data-aos="zoom-in">
             <h1 class="display-4 fw-bold glitch-text">İletişim</h1>
             <p class="lead academic-sub">Bana Ulaşın // Mesaj Bırakın</p>
         </div>
     </header>
-
+ 
     <main class="container pb-5">
         <div class="row g-4 mt-2">
+            <!-- FORM ALANI -->
             <div class="col-lg-7" id="app" data-aos="fade-right">
                 <div class="holo-card">
                     <h4 class="text-purple fw-bold mb-4"><i class="fas fa-paper-plane me-2"></i> Mesaj Gönder</h4>
                     <form id="contactForm" action="iletisim_onay.php" method="POST">
-                        <div class="mb-1">
-                            <input type="text" name="ad" v-model="ad" class="form-control" placeholder="Ad Soyad" required>
+ 
+                        <!-- Ad Soyad -->
+                        <label class="form-label">Ad Soyad *</label>
+                        <input type="text" name="ad" id="ad" v-model="ad" class="form-control" placeholder="Adınız Soyadınız">
+                        <div class="error-msg" id="err-ad">Ad Soyad boş bırakılamaz.</div>
+ 
+                        <!-- E-posta -->
+                        <label class="form-label">E-posta *</label>
+                        <input type="email" name="email" id="email" v-model="email" class="form-control" placeholder="ornek@email.com">
+                        <div class="error-msg" id="err-email">Geçerli bir e-posta adresi giriniz.</div>
+ 
+                        <!-- Telefon -->
+                        <label class="form-label">Telefon</label>
+                        <input type="text" name="tel" id="tel" v-model="tel" class="form-control" placeholder="05xx xxx xx xx">
+                        <div class="error-msg" id="err-tel">Telefon numarası sadece rakamlardan oluşmalıdır.</div>
+ 
+                        <!-- Konu (SELECT) -->
+                        <label class="form-label">Konu *</label>
+                        <select name="konu" id="konu" v-model="konu" class="form-select">
+                            <option value="">-- Konu Seçiniz --</option>
+                            <option value="is-birligi">İş Birliği</option>
+                            <option value="proje">Proje Teklifi</option>
+                            <option value="bilgi">Bilgi Alma</option>
+                            <option value="diger">Diğer</option>
+                        </select>
+                        <div class="error-msg" id="err-konu">Lütfen bir konu seçiniz.</div>
+ 
+                        <!-- İletişim Tercihi (RADIO) -->
+                        <label class="form-label d-block mb-2">İletişim Tercihi</label>
+                        <div class="d-flex gap-4 mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="tercih" id="tercih-email" value="email" v-model="tercih">
+                                <label class="form-check-label" for="tercih-email">E-posta</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="tercih" id="tercih-tel" value="telefon" v-model="tercih">
+                                <label class="form-check-label" for="tercih-tel">Telefon</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="tercih" id="tercih-wp" value="whatsapp" v-model="tercih">
+                                <label class="form-check-label" for="tercih-wp">WhatsApp</label>
+                            </div>
                         </div>
-                        <div class="mb-1">
-                            <input type="email" name="email" v-model="email" class="form-control" placeholder="E-posta" required>
+ 
+                        <!-- Mesaj -->
+                        <label class="form-label">Mesajınız</label>
+                        <textarea name="mesaj" id="mesaj" v-model="mesaj" class="form-control" rows="4" placeholder="Mesajınızı buraya yazın..."></textarea>
+ 
+                        <!-- KVKK Onayı (CHECKBOX) -->
+                        <div class="form-check mt-2 mb-1">
+                            <input class="form-check-input" type="checkbox" name="kvkk" id="kvkk" v-model="kvkk">
+                            <label class="form-check-label" for="kvkk">
+                                Kişisel verilerimin işlenmesine onay veriyorum (KVKK).
+                            </label>
                         </div>
-                        <div class="mb-1">
-                            <input type="text" name="tel" v-model="tel" class="form-control" placeholder="Telefon (05xx xxx xx xx)">
+                        <div class="error-msg" id="err-kvkk">Devam etmek için KVKK onayı vermelisiniz.</div>
+ 
+                        <!-- Bülten Aboneliği (CHECKBOX) -->
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" name="bulten" id="bulten" v-model="bulten">
+                            <label class="form-check-label" for="bulten">
+                                Güncellemelerden haberdar olmak istiyorum.
+                            </label>
                         </div>
-                        <div class="mb-1">
-                            <textarea name="mesaj" v-model="mesaj" class="form-control" rows="4" placeholder="Mesajınız..."></textarea>
-                        </div>
-                        
+ 
+                        <!-- İKİ BUTON -->
                         <div class="row g-3 mt-2">
                             <div class="col-6">
-                                <button type="button" onclick="validateNative()" class="btn-cyber" style="border-color: var(--cyan); color: var(--cyan);">NATIVE JS</button>
+                                <button type="button" onclick="validateNative()" class="btn-cyber" style="border-color: var(--cyan); color: var(--cyan);">
+                                    <i class="fas fa-code me-1"></i> NATIVE JS
+                                </button>
                             </div>
                             <div class="col-6">
-                                <button type="button" @click="validateVue" class="btn-cyber">VUE.JS</button>
+                                <button type="button" @click="validateVue" class="btn-cyber">
+                                    <i class="fab fa-vuejs me-1"></i> VUE.JS
+                                </button>
                             </div>
                         </div>
+ 
                     </form>
                 </div>
             </div>
-
+ 
+            <!-- BİLGİLER -->
             <div class="col-lg-5" data-aos="fade-left">
                 <div class="holo-card">
                     <h4 class="text-purple fw-bold mb-4"><i class="fas fa-address-book me-2"></i> Bilgilerim</h4>
                     <div class="mb-4">
-                        <p class="mb-3"><strong class="text-cyan"><i class="fas fa-envelope me-2"></i></strong> ruveyda.tuzcu.ogr.sakarya.edu.tr</p>
+                        <p class="mb-3"><strong class="text-cyan"><i class="fas fa-envelope me-2"></i></strong> ruveyda.tuzcu@ogr.sakarya.edu.tr</p>
                         <p class="mb-3"><strong class="text-cyan"><i class="fab fa-whatsapp me-2"></i></strong> 0552 708 25 15</p>
                         <p class="mb-3"><strong class="text-cyan"><i class="fas fa-location-dot me-2"></i></strong> Sakarya Üniversitesi // Mühendislik Fakültesi</p>
                     </div>
@@ -125,21 +217,22 @@
                 </div>
             </div>
         </div>
-
+ 
+        <!-- HARİTA -->
         <div class="row mt-5" data-aos="fade-up">
             <div class="col-12">
-                <div class="map-wrapper" style="height: 400px; border-radius: 30px; overflow: hidden; border: 1px solid var(--border);">
+                <div style="height: 400px; border-radius: 30px; overflow: hidden; border: 1px solid var(--border);">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.61066030999!2d30.329864476629166!3d40.74418653537466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cb43df8996b797%3A0xc07a8b43343c3a4f!2sSakarya%20%C3%9Cniversitesi!5e0!3m2!1str!2str!4v1714152345678!5m2!1str!2str" 
                             width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
     </main>
-
+ 
     <footer class="text-center py-5 text-muted small">
         <p>© 2026 RÜVEYDA TUZCU // B251210070</p>
     </footer>
-
+ 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -156,21 +249,50 @@
                 move: { speed: 1 }
             }
         });
-
+ 
+        // =============================================
         // NATIVE JS VALIDATION
+        // =============================================
+        function showError(id, show) {
+            document.getElementById(id).style.display = show ? 'block' : 'none';
+        }
+ 
         function validateNative() {
-            const form = document.getElementById('contactForm');
-            const ad = form.ad.value;
-            const email = form.email.value;
-            
-            if(ad.trim() === "" || email.trim() === "") {
-                alert("Native JS: Lütfen zorunlu alanları (Ad ve Email) doldurun!");
+            const ad    = document.getElementById('ad').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const tel   = document.getElementById('tel').value.trim();
+            const konu  = document.getElementById('konu').value;
+            const kvkk  = document.getElementById('kvkk').checked;
+ 
+            // E-posta format kontrolü
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            // Telefon: sadece rakam, boşluk ve + işareti
+            const telRegex = /^[0-9\s+]*$/;
+ 
+            let valid = true;
+ 
+            showError('err-ad',    ad === '');
+            showError('err-email', email === '' || !emailRegex.test(email));
+            showError('err-tel',   tel !== '' && !telRegex.test(tel));
+            showError('err-konu',  konu === '');
+            showError('err-kvkk',  !kvkk);
+ 
+            if (ad === '')                            valid = false;
+            if (email === '' || !emailRegex.test(email)) valid = false;
+            if (tel !== '' && !telRegex.test(tel))    valid = false;
+            if (konu === '')                          valid = false;
+            if (!kvkk)                                valid = false;
+ 
+            if (valid) {
+                document.getElementById('contactForm').submit();
             } else {
-                form.submit();
+                alert('Native JS: Lütfen hatalı alanları düzeltin!');
             }
         }
-
+ 
+        // =============================================
         // VUE.JS VALIDATION
+        // =============================================
         const { createApp } = Vue;
         createApp({
             data() {
@@ -178,16 +300,39 @@
                     ad: '',
                     email: '',
                     tel: '',
-                    mesaj: ''
+                    konu: '',
+                    tercih: '',
+                    mesaj: '',
+                    kvkk: false,
+                    bulten: false,
+                    errors: {}
                 }
             },
             methods: {
                 validateVue() {
-                    if (!this.ad || !this.email) {
-                        alert("Vue.js: Ad ve Email alanları boş bırakılamaz!");
-                    } else {
-                        // Vue üzerinden formu gönderme
+                    this.errors = {};
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    const telRegex   = /^[0-9\s+]*$/;
+ 
+                    if (!this.ad.trim())
+                        this.errors.ad = 'Ad Soyad boş bırakılamaz.';
+ 
+                    if (!this.email.trim() || !emailRegex.test(this.email))
+                        this.errors.email = 'Geçerli bir e-posta adresi giriniz.';
+ 
+                    if (this.tel.trim() !== '' && !telRegex.test(this.tel))
+                        this.errors.tel = 'Telefon numarası sadece rakamlardan oluşmalıdır.';
+ 
+                    if (!this.konu)
+                        this.errors.konu = 'Lütfen bir konu seçiniz.';
+ 
+                    if (!this.kvkk)
+                        this.errors.kvkk = 'KVKK onayı zorunludur.';
+ 
+                    if (Object.keys(this.errors).length === 0) {
                         document.getElementById('contactForm').submit();
+                    } else {
+                        alert('Vue.js: Lütfen hatalı alanları düzeltin!\n\n' + Object.values(this.errors).join('\n'));
                     }
                 }
             }
@@ -195,3 +340,4 @@
     </script>
 </body>
 </html>
+ 
