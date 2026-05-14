@@ -1,10 +1,18 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Form verilerini güvenli bir şekilde alalım
-    $ad = htmlspecialchars($_POST['ad'] ?? '-');
+    // 1. Temel verileri alalım
+    $ad    = htmlspecialchars($_POST['ad'] ?? '-');
     $email = htmlspecialchars($_POST['email'] ?? '-');
-    $tel = htmlspecialchars($_POST['tel'] ?? '-');
+    $tel   = htmlspecialchars($_POST['tel'] ?? '-');
     $mesaj = htmlspecialchars($_POST['mesaj'] ?? '-');
+
+    // 2. Eksik olan (Select, Radio, Checkbox) verileri ekleyelim
+    $konu   = htmlspecialchars($_POST['konu'] ?? 'Seçilmedi');
+    $tercih = htmlspecialchars($_POST['tercih'] ?? 'Belirtilmedi');
+    
+    // Checkbox'lar seçilmediğinde POST edilmez, bu yüzden isset ile kontrol ediyoruz
+    $kvkk   = isset($_POST['kvkk']) ? 'Onaylandı' : 'Onaylanmadı';
+    $bulten = isset($_POST['bulten']) ? 'Abone Olmak İstiyor' : 'Abone Olmak İstemiyor';
 
     echo '<!DOCTYPE html>
     <html lang="tr">
@@ -47,6 +55,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <p><strong>Ad Soyad:</strong> <span class="text-white">' . $ad . '</span></p>
                             <p><strong>E-posta:</strong> <span class="text-white">' . $email . '</span></p>
                             <p><strong>Telefon:</strong> <span class="text-white">' . $tel . '</span></p>
+                            <p><strong>Konu:</strong> <span class="text-white">' . $konu . '</span></p>
+                            <p><strong>İletişim Tercihi:</strong> <span class="text-white">' . ucfirst($tercih) . '</span></p>
+                            <p><strong>KVKK Onayı:</strong> <span class="text-white">' . $kvkk . '</span></p>
+                            <p><strong>Bülten Aboneliği:</strong> <span class="text-white">' . $bulten . '</span></p>
                             <p><strong>Mesaj:</strong> <br><span class="text-white">' . nl2br($mesaj) . '</span></p>
                         </div>
 
@@ -71,7 +83,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </body>
     </html>';
 } else {
-    // Eğer sayfaya doğrudan erişilmeye çalışılırsa ana sayfaya yönlendir
     header("Location: index.html");
     exit();
 }
