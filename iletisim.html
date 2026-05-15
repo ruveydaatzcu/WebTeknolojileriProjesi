@@ -120,22 +120,25 @@
  
                         <!-- Ad Soyad -->
                         <label class="form-label">Ad Soyad *</label>
-                        <input type="text" name="ad" id="ad" v-model="ad" class="form-control" placeholder="Adınız Soyadınız">
-                        <div class="error-msg" id="err-ad">Ad Soyad boş bırakılamaz.</div>
+                        <input type="text" name="ad" id="ad" v-model="ad" class="form-control" placeholder="Adınız Soyadınız"
+                               oninput="this.value = this.value.replace(/[0-9]/g, '');" onblur="validateField('ad')">
+                        <div class="error-msg" id="err-ad">Ad Soyad boş bırakılamaz ve sadece harf içermelidir.</div>
  
                         <!-- E-posta -->
                         <label class="form-label">E-posta *</label>
-                        <input type="email" name="email" id="email" v-model="email" class="form-control" placeholder="ornek@email.com">
+                        <input type="email" name="email" id="email" v-model="email" class="form-control" placeholder="ornek@email.com"
+                               onblur="validateField('email')">
                         <div class="error-msg" id="err-email">Geçerli bir e-posta adresi giriniz.</div>
  
                         <!-- Telefon -->
                         <label class="form-label">Telefon</label>
-                        <input type="text" name="tel" id="tel" v-model="tel" class="form-control" placeholder="05xx xxx xx xx">
+                        <input type="text" name="tel" id="tel" v-model="tel" class="form-control" placeholder="05xx xxx xx xx"
+                               onblur="validateField('tel')">
                         <div class="error-msg" id="err-tel">Telefon numarası sadece rakamlardan oluşmalıdır.</div>
  
-                        <!-- Konu (SELECT) -->
+                        <!-- Konu -->
                         <label class="form-label">Konu *</label>
-                        <select name="konu" id="konu" v-model="konu" class="form-select">
+                        <select name="konu" id="konu" v-model="konu" class="form-select" onchange="validateField('konu')">
                             <option value="">-- Konu Seçiniz --</option>
                             <option value="is-birligi">İş Birliği</option>
                             <option value="proje">Proje Teklifi</option>
@@ -144,7 +147,7 @@
                         </select>
                         <div class="error-msg" id="err-konu">Lütfen bir konu seçiniz.</div>
  
-                        <!-- İletişim Tercihi (RADIO) -->
+                        <!-- İletişim Tercihi -->
                         <label class="form-label d-block mb-2">İletişim Tercihi</label>
                         <div class="d-flex gap-4 mb-3">
                             <div class="form-check">
@@ -165,16 +168,16 @@
                         <label class="form-label">Mesajınız</label>
                         <textarea name="mesaj" id="mesaj" v-model="mesaj" class="form-control" rows="4" placeholder="Mesajınızı buraya yazın..."></textarea>
  
-                        <!-- KVKK Onayı (CHECKBOX) -->
+                        <!-- KVKK Onayı -->
                         <div class="form-check mt-2 mb-1">
-                            <input class="form-check-input" type="checkbox" name="kvkk" id="kvkk" v-model="kvkk">
+                            <input class="form-check-input" type="checkbox" name="kvkk" id="kvkk" v-model="kvkk" onchange="validateField('kvkk')">
                             <label class="form-check-label" for="kvkk">
                                 Kişisel verilerimin işlenmesine onay veriyorum (KVKK).
                             </label>
                         </div>
                         <div class="error-msg" id="err-kvkk">Devam etmek için KVKK onayı vermelisiniz.</div>
  
-                        <!-- Bülten Aboneliği (CHECKBOX) -->
+                        <!-- Bülten Aboneliği -->
                         <div class="form-check mb-3">
                             <input class="form-check-input" type="checkbox" name="bulten" id="bulten" v-model="bulten">
                             <label class="form-check-label" for="bulten">
@@ -182,16 +185,21 @@
                             </label>
                         </div>
  
-                        <!-- İKİ BUTON -->
-                        <div class="row g-3 mt-2">
-                            <div class="col-6">
+                        <!-- BUTONLAR -->
+                        <div class="row g-2 mt-2">
+                            <div class="col-md-4">
                                 <button type="button" onclick="validateNative()" class="btn-cyber" style="border-color: var(--cyan); color: var(--cyan);">
                                     <i class="fas fa-code me-1"></i> NATIVE JS
                                 </button>
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-4">
                                 <button type="button" @click="validateVue" class="btn-cyber">
                                     <i class="fab fa-vuejs me-1"></i> VUE.JS
+                                </button>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" @click="clearForm" class="btn-cyber" style="border-color: #ff4d4d; color: #ff4d4d;">
+                                    <i class="fas fa-trash-alt me-1"></i> TEMİZLE
                                 </button>
                             </div>
                         </div>
@@ -206,7 +214,8 @@
                     <h4 class="text-purple fw-bold mb-4"><i class="fas fa-address-book me-2"></i> Bilgilerim</h4>
                     <div class="mb-4">
                         <p class="mb-3"><strong class="text-cyan"><i class="fas fa-envelope me-2"></i></strong> ruveyda.tuzcu@ogr.sakarya.edu.tr</p>
-                        <p class="mb-3"><strong class="text-cyan"><i class="fab fa-whatsapp me-2"></i></strong> 0552 708 25 15</p>
+                        <p class="mb-3"><strong class="text-cyan"><i class="fab fa-github me-2"></i></strong> ruveydaatzcu</p>
+                        <p class="mb-3"><strong class="text-cyan"><i class="fab fa-linkedin me-2"></i></strong> rüveyda tuzcu</p>
                         <p class="mb-3"><strong class="text-cyan"><i class="fas fa-location-dot me-2"></i></strong> Sakarya Üniversitesi // Mühendislik Fakültesi</p>
                     </div>
                     <hr style="border-color: var(--border);">
@@ -256,6 +265,22 @@
         function showError(id, show) {
             document.getElementById(id).style.display = show ? 'block' : 'none';
         }
+
+        function validateField(fieldId) {
+            const val = document.getElementById(fieldId).type === 'checkbox' 
+                        ? document.getElementById(fieldId).checked 
+                        : document.getElementById(fieldId).value.trim();
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const telRegex = /^[0-9\s+]*$/;
+            const adRegex = /^[a-zA-ZğüşıöçĞÜŞİÖÇ\s]+$/;
+
+            if (fieldId === 'ad') showError('err-ad', val === '' || !adRegex.test(val));
+            if (fieldId === 'email') showError('err-email', val === '' || !emailRegex.test(val));
+            if (fieldId === 'tel') showError('err-tel', val !== '' && !telRegex.test(val));
+            if (fieldId === 'konu') showError('err-konu', val === '');
+            if (fieldId === 'kvkk') showError('err-kvkk', !val);
+        }
  
         function validateNative() {
             const ad    = document.getElementById('ad').value.trim();
@@ -264,20 +289,19 @@
             const konu  = document.getElementById('konu').value;
             const kvkk  = document.getElementById('kvkk').checked;
  
-            // E-posta format kontrolü
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            // Telefon: sadece rakam, boşluk ve + işareti
             const telRegex = /^[0-9\s+]*$/;
+            const adRegex = /^[a-zA-ZğüşıöçĞÜŞİÖÇ\s]+$/;
  
             let valid = true;
  
-            showError('err-ad',    ad === '');
+            showError('err-ad',    ad === '' || !adRegex.test(ad));
             showError('err-email', email === '' || !emailRegex.test(email));
             showError('err-tel',   tel !== '' && !telRegex.test(tel));
             showError('err-konu',  konu === '');
             showError('err-kvkk',  !kvkk);
  
-            if (ad === '')                            valid = false;
+            if (ad === '' || !adRegex.test(ad))       valid = false;
             if (email === '' || !emailRegex.test(email)) valid = false;
             if (tel !== '' && !telRegex.test(tel))    valid = false;
             if (konu === '')                          valid = false;
@@ -291,7 +315,7 @@
         }
  
         // =============================================
-        // VUE.JS VALIDATION
+        // VUE.JS VALIDATION & RESET
         // =============================================
         const { createApp } = Vue;
         createApp({
@@ -313,31 +337,71 @@
                     this.errors = {};
                     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                     const telRegex   = /^[0-9\s+]*$/;
+                    const adRegex    = /^[a-zA-ZğüşıöçĞÜŞİÖÇ\s]+$/;
  
-                    if (!this.ad.trim())
-                        this.errors.ad = 'Ad Soyad boş bırakılamaz.';
+                    if (!this.ad.trim() || !adRegex.test(this.ad.trim())) {
+                        this.errors.ad = 'Ad Soyad boş bırakılamaz ve sayılardan oluşamaz.';
+                        showError('err-ad', true);
+                    } else {
+                        showError('err-ad', false);
+                    }
  
-                    if (!this.email.trim() || !emailRegex.test(this.email))
+                    if (!this.email.trim() || !emailRegex.test(this.email)) {
                         this.errors.email = 'Geçerli bir e-posta adresi giriniz.';
+                        showError('err-email', true);
+                    } else {
+                        showError('err-email', false);
+                    }
  
-                    if (this.tel.trim() !== '' && !telRegex.test(this.tel))
+                    if (this.tel.trim() !== '' && !telRegex.test(this.tel)) {
                         this.errors.tel = 'Telefon numarası sadece rakamlardan oluşmalıdır.';
+                        showError('err-tel', true);
+                    } else {
+                        showError('err-tel', false);
+                    }
  
-                    if (!this.konu)
+                    if (!this.konu) {
                         this.errors.konu = 'Lütfen bir konu seçiniz.';
+                        showError('err-konu', true);
+                    } else {
+                        showError('err-konu', false);
+                    }
  
-                    if (!this.kvkk)
+                    if (!this.kvkk) {
                         this.errors.kvkk = 'KVKK onayı zorunludur.';
+                        showError('err-kvkk', true);
+                    } else {
+                        showError('err-kvkk', false);
+                    }
  
                     if (Object.keys(this.errors).length === 0) {
                         document.getElementById('contactForm').submit();
                     } else {
                         alert('Vue.js: Lütfen hatalı alanları düzeltin!\n\n' + Object.values(this.errors).join('\n'));
                     }
+                },
+                clearForm() {
+                    // Vue veri nesnelerini sıfırla
+                    this.ad = '';
+                    this.email = '';
+                    this.tel = '';
+                    this.konu = '';
+                    this.tercih = '';
+                    this.mesaj = '';
+                    this.kvkk = false;
+                    this.bulten = false;
+                    this.errors = {};
+
+                    // Form elementlerini fiziksel olarak temizle (Burayı ekledik)
+                    document.getElementById('contactForm').reset();
+
+                    // Tüm Native hata mesajlarını gizle
+                    document.querySelectorAll('.error-msg').forEach(el => {
+                        el.style.display = 'none';
+                    });
                 }
             }
         }).mount('#app');
     </script>
 </body>
 </html>
- 
